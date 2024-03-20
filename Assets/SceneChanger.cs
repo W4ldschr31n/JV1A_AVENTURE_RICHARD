@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    public int sceneToLoadIndex;
+    public SceneAsset sceneToLoad;
+    public Direction arrivalSpot;
+    private GameData gameData;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +27,16 @@ public class SceneChanger : MonoBehaviour
         {
             Debug.Log("Adios");
             collision.gameObject.GetComponent<Movement>().spawnPoint = new Vector2(-transform.position.x, 0);
-            SceneManager.LoadScene(sceneToLoadIndex);
+            SceneManager.LoadScene(sceneToLoad.name);
         }
     }
+}
+
+public enum Direction
+{
+    Center,
+    North,
+    East,
+    South,
+    West
 }

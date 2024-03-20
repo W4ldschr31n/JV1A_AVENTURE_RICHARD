@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rgbd = GetComponent<Rigidbody2D>();
-        SceneManager.sceneLoaded += onSceneLoaded;
+        
     }
 
     // Update is called once per frame
@@ -27,12 +27,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void onSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Respawn();
-    }
-
-    private void Respawn()
+    public void Respawn()
     {
         transform.position = spawnPoint;
         rgbd.velocity = Vector2.zero;
