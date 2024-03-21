@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
     public SceneAsset sceneToLoad;
-    public Direction arrivalSpot;
+    public Direction arrivalDirection = Direction.Center;
     private GameData gameData;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameData = FindObjectOfType<GameData>();
     }
 
     // Update is called once per frame
@@ -25,9 +25,7 @@ public class SceneChanger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Adios");
-            collision.gameObject.GetComponent<Movement>().spawnPoint = new Vector2(-transform.position.x, 0);
-            SceneManager.LoadScene(sceneToLoad.name);
+            gameData.ChangeScene(sceneToLoad.name, arrivalDirection);
         }
     }
 }

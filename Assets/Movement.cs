@@ -7,7 +7,6 @@ public class Movement : MonoBehaviour
 {
     private Rigidbody2D rgbd;
     public float moveSpeed;
-    public Vector2 spawnPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +15,13 @@ public class Movement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float x = Input.GetAxisRaw("Horizontal");
-        rgbd.AddForce(new Vector2(x * moveSpeed, 0));
+        float y = Input.GetAxisRaw("Vertical");
+        Vector3 direction = new Vector3(x, y).normalized;
+        Vector3 movement = direction * moveSpeed * Time.fixedDeltaTime;
+        rgbd.MovePosition(transform.position + movement);
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -27,9 +29,4 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void Respawn()
-    {
-        transform.position = spawnPoint;
-        rgbd.velocity = Vector2.zero;
-    }
 }
