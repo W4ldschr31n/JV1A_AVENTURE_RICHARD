@@ -16,7 +16,6 @@ public class GameData : MonoBehaviour
         SceneManager.sceneLoaded += onSceneLoaded;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
-        DontDestroyOnLoad(this);
         SceneManager.LoadScene(1); // SceneMilieu
     }
 
