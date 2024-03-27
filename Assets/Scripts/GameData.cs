@@ -7,14 +7,15 @@ public class GameData : MonoBehaviour
 {
     private Direction spawnDirection;
     private Vector2 spawnPoint = Vector2.zero;
-    private Movement player;
-    private CameraFollow camera;
+    private PlayerControl player;
+    private CameraFollow mainCamera;
     private LevelData levelData;
     // Start is called before the first frame update
     void Start()
     {
         SceneManager.sceneLoaded += onSceneLoaded;
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
         DontDestroyOnLoad(this);
         SceneManager.LoadScene(1); // SceneMilieu
     }
@@ -28,7 +29,7 @@ public class GameData : MonoBehaviour
     private void MovePlayerToSpawn()
     {
         player.transform.position = spawnPoint;
-        camera.transform.position = spawnPoint;
+        mainCamera.transform.position = new Vector3(spawnPoint.x, spawnPoint.y, mainCamera.transform.position.z);
     }
 
     public void ChangeScene(string sceneName, Direction newSpawnDirection)
