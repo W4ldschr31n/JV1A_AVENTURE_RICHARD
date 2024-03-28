@@ -24,6 +24,6 @@ public class OboleCounter : MonoBehaviour
 
     private void UpdateCounter()
     {
-        textCounter.text = "Nombre d'oboles : " + inventory.GetNbOboles();
+        textCounter.text = "x" + inventory.GetNbOboles();
     }
 }

@@ -10,6 +10,8 @@ public class EnemyControl : MonoBehaviour
     private Transform patrolPoint1, patrolPoint2;
     private Vector3 currentTarget;
     private bool goTowardsFirst = true;
+    public int damage;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,14 @@ public class EnemyControl : MonoBehaviour
         {
             goTowardsFirst = !goTowardsFirst;
             currentTarget = goTowardsFirst ? patrolPoint1.position : patrolPoint2.position;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerControl>().TakeHit(damage);
         }
     }
 
