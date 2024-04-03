@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+
+
 public class EnemyBehaviour : MonoBehaviour
 {
     public int damage;
-    public static event Action<Vector2> onEnemyJudged;
-    public static event Action<Vector2> onEnemyOboled;
+    public static event Action<Vector2, KillMethod> onEnemyKilled;
 
     // Start is called before the first frame update
     void Start()
@@ -22,15 +23,22 @@ public class EnemyBehaviour : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Judgement"))
         {
-            onEnemyJudged?.Invoke(transform.position);
-            Destroy(gameObject);
+            onEnemyKilled?.Invoke(transform.position, KillMethod.Judgement);
+            Destroy(gameObject.transform.parent.gameObject);
         }
         else if (collision.gameObject.CompareTag("Obole"))
         {
-            onEnemyOboled?.Invoke(transform.position);
-            Destroy(gameObject);
+            onEnemyKilled?.Invoke(transform.position, KillMethod.Obole);
+            Destroy(gameObject.transform.parent.gameObject);
         }
     }
 
 
+}
+
+
+public enum KillMethod
+{
+    Judgement,
+    Obole,
 }
