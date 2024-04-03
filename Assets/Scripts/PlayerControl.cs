@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
     private Animator animator;
     private Inventory inventory;
     public float moveSpeed;
+    [SerializeField]
     private int maxHealth = 100;
     public int health;
     public static event Action onPlayerTakeHit;
