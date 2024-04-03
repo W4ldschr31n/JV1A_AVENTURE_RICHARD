@@ -16,7 +16,8 @@ public class PlayerControl : MonoBehaviour
     public static event Action onPlayerTakeHit;
     public static event Action onPlayerHeal;
     public static event Action onPlayerDead;
-    private bool canBeDamaged = true;
+    public bool canBeDamaged = true;
+    public bool canAttack = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,10 +29,19 @@ public class PlayerControl : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            ThrowObole();
+        if (canAttack)
+        { 
+            if (Input.GetButtonDown("Fire1"))
+            {
+                AttackJudgement();
+            }
+
+            if (Input.GetButtonDown("Fire2"))
+            {
+                ThrowObole();
+            }
         }
+
     }
 
     // Update is called once per frame
@@ -47,6 +57,11 @@ public class PlayerControl : MonoBehaviour
         {
             transform.position = Vector2.zero;
         }
+    }
+
+    private void AttackJudgement()
+    {
+        animator.Play("JudgementAnimation");
     }
 
     private void ThrowObole()

@@ -23,10 +23,12 @@ public class EnemyBehaviour : MonoBehaviour
         else if (collision.gameObject.CompareTag("Judgement"))
         {
             onEnemyJudged?.Invoke(transform.position);
+            Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("Obole"))
         {
             onEnemyOboled?.Invoke(transform.position);
+            Destroy(gameObject);
         }
     }
 
