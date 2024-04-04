@@ -19,7 +19,11 @@ public class Faith : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Aîe");
-        if (collision.gameObject.CompareTag("Player"))
+        if (
+            collision.gameObject.CompareTag("Player")
+            &&
+            !collision.gameObject.GetComponent<PlayerControl>().IsFullLife()
+        )
         {
             collision.gameObject.GetComponent<PlayerControl>().TakeFaith();
             Destroy(gameObject);

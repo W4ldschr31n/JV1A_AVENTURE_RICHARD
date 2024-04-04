@@ -100,4 +100,9 @@ public class PlayerControl : MonoBehaviour
         animator.SetTrigger("Dead");
     }
 
+    public bool IsFullLife()
+    {
+        return health == maxHealth;
+    }
+
 }
