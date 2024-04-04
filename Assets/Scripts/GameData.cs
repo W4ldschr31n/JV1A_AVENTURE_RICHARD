@@ -12,6 +12,7 @@ public class GameData : MonoBehaviour
     private LevelData levelData;
     public GameObject obolePrefab;
     public GameObject faithPrefab;
+    public const int FAITH_HEAL = 15;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,10 +70,10 @@ public class GameData : MonoBehaviour
 
     private int GetRandomNbRewards()
     {
-        // Custom randomizer to have 40% -> 0; 40% -> 1; 20% -> 2
+        // Custom randomizer to have 30% -> 0; 50% -> 1; 20% -> 2
         int rawResult = Random.Range(0, 100);
         return (
-            rawResult <= 39 ? 0
+            rawResult <= 29 ? 0
             : rawResult <= 79 ? 1
             : 2
         );

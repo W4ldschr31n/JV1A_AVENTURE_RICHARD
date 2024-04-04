@@ -76,15 +76,22 @@ public class PlayerControl : MonoBehaviour
     {
         if (canBeDamaged)
         {
-            onPlayerTakeHit?.Invoke();
             animator.SetTrigger("Hit");
             health = Math.Max(0, health - damage);
+            onPlayerTakeHit?.Invoke();
             if (health <= 0)
             {
                 Die();
             }
 
         }
+    }
+
+    public void TakeFaith()
+    {
+        animator.SetTrigger("Heal");
+        health = Math.Min(maxHealth, health + GameData.FAITH_HEAL);
+        onPlayerHeal?.Invoke();
     }
 
     public void Die()

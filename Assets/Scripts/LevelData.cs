@@ -28,7 +28,6 @@ public class LevelData : MonoBehaviour
 
     public Vector2 GetSpawnPoint(Direction dir)
     {
-        Debug.Log(spawnDict.Keys.Count);
         return spawnDict.GetValueOrDefault(dir, spawnCenter).position;
     }
 }
