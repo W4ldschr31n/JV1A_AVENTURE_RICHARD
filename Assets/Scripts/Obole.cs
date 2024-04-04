@@ -25,4 +25,13 @@ public class Obole : MonoBehaviour
             onOboleCollected?.Invoke();
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            onOboleCollected?.Invoke();
+            Destroy(gameObject);
+        }
+    }
 }

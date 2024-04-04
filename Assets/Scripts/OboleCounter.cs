@@ -14,6 +14,7 @@ public class OboleCounter : MonoBehaviour
         inventory = FindObjectOfType<Inventory>();
         Obole.onOboleCollected += UpdateCounter;
         Inventory.onOboleSpent += UpdateCounter;
+        UpdateCounter();
     }
 
     // Update is called once per frame

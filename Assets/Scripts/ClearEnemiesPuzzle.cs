@@ -17,18 +17,14 @@ public class ClearEnemiesPuzzle : MonoBehaviour
         EnemyBehaviour.onEnemyKilled -= CheckEnemiesAreDead;
     }
 
-    private void CheckEnemiesAreDead(Vector2 enemyPosition, KillMethod killMethod)
+    private void CheckEnemiesAreDead(GameObject enemy, KillMethod killMethod)
     {
-        Debug.Log("Enemy down");
-        Debug.Log("Remaining: "+GameObject.FindGameObjectsWithTag("Enemy").Length);
         // Wait a bit so the enemy that died is destroy
         Invoke("CheckAndDestroy", 0.5f);
-        
     }
 
     private void CheckAndDestroy()
     {
-        Debug.Log("After delay: "+GameObject.FindGameObjectsWithTag("Enemy").Length);
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
             foreach (GameObject go in objectsToDestroy)

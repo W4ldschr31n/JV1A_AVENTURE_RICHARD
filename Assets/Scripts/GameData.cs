@@ -10,10 +10,14 @@ public class GameData : MonoBehaviour
     private PlayerControl player;
     private CameraFollow mainCamera;
     private LevelData levelData;
+    public GameObject obolePrefab;
+    public GameObject faithPrefab;
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.sceneLoaded += onSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        LostSoul.onLostSoulFreed += OnLostSoulFreed;
+        EnemyBehaviour.onEnemyKilled += OnEnemyKilled;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
         SceneManager.LoadScene(1); // SceneMilieu
@@ -37,10 +41,50 @@ public class GameData : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    private void onSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         levelData = FindObjectOfType<LevelData>();
         spawnPoint = levelData.GetSpawnPoint(spawnDirection);
         MovePlayerToSpawn();
+    }
+
+    private void OnLostSoulFreed(LostSoul lostSoul)
+    {
+        Vector2 position = lostSoul.transform.position;
+        int nbRewards = lostSoul.nbRewards;
+        Destroy(lostSoul.gameObject);
+        SpawnRewards(obolePrefab, nbRewards, position);
+    }
+
+    private void OnEnemyKilled(GameObject enemy, KillMethod killMethod)
+    {
+        // Store enemy position before destroying it
+        Vector2 position = enemy.transform.position;
+        Destroy(enemy);
+        // Get data for the rewards (judgement->obole; obole->faith)
+        int nbRewards = GetRandomNbRewards();
+        GameObject rewardObject = killMethod == KillMethod.Judgement ? obolePrefab : faithPrefab;
+        SpawnRewards(rewardObject, nbRewards, position);
+    }
+
+    private int GetRandomNbRewards()
+    {
+        // Custom randomizer to have 40% -> 0; 40% -> 1; 20% -> 2
+        int rawResult = Random.Range(0, 100);
+        return (
+            rawResult <= 39 ? 0
+            : rawResult <= 79 ? 1
+            : 2
+        );
+    }
+
+    private void SpawnRewards(GameObject rewardObject, int nbRewards, Vector2 position)
+    {
+        Vector2 offset; // So that the objects don't stack upon each other
+        for (int i = 0; i < nbRewards; i++)
+        {
+            offset = new Vector2(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
+            Instantiate(rewardObject, position + offset, Quaternion.identity);
+        }
     }
 }

@@ -7,7 +7,7 @@ using System;
 public class EnemyBehaviour : MonoBehaviour
 {
     public int damage;
-    public static event Action<Vector2, KillMethod> onEnemyKilled;
+    public static event Action<GameObject, KillMethod> onEnemyKilled;
 
     // Start is called before the first frame update
     void Start()
@@ -15,21 +15,23 @@ public class EnemyBehaviour : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerControl>().TakeHit(damage);
         }
-        else if (collision.gameObject.CompareTag("Judgement"))
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Judgement"))
         {
-            onEnemyKilled?.Invoke(transform.position, KillMethod.Judgement);
-            Destroy(gameObject.transform.parent.gameObject);
+            onEnemyKilled?.Invoke(gameObject.transform.parent.gameObject, KillMethod.Judgement);
         }
-        else if (collision.gameObject.CompareTag("Obole"))
+        else if (collision.gameObject.CompareTag("OboleProjectile"))
         {
-            onEnemyKilled?.Invoke(transform.position, KillMethod.Obole);
-            Destroy(gameObject.transform.parent.gameObject);
+            onEnemyKilled?.Invoke(gameObject.transform.parent.gameObject, KillMethod.Obole);
         }
     }
 

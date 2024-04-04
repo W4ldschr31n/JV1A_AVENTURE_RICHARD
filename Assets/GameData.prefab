@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d788cba1fdf15514383caaec61fb3e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obolePrefab: {fileID: 5709329042289183038, guid: adfa185393b8502418379036b93df605, type: 3}
+  faithPrefab: {fileID: 5709329042289183038, guid: adfa185393b8502418379036b93df605, type: 3}
 --- !u!114 &7080604383080782847
 MonoBehaviour:
   m_ObjectHideFlags: 0
