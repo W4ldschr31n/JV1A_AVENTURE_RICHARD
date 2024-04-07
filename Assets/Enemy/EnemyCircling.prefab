@@ -79,6 +79,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4786476238289823996, guid: ff8eff617f72f184a8ed8b61836ebce2, type: 3}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5627739123868552787, guid: ff8eff617f72f184a8ed8b61836ebce2, type: 3}
       propertyPath: m_Name
       value: EnemyCircling
