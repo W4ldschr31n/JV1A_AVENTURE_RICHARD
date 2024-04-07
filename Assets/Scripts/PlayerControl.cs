@@ -9,20 +9,20 @@ public class PlayerControl : MonoBehaviour
     // Internal components
     private Rigidbody2D rgbd;
     private Animator animator;
+    private DirectionalMovement directionalMovement;
     private Inventory inventory;
+    
     // Events
     public static event Action onPlayerTakeHit;
     public static event Action onPlayerHeal;
     public static event Action onPlayerDead;
-    // Movement
-    public float moveSpeed;
-    private Vector3 direction;
-    private float lastX, lastY;
+
     // Health
     [SerializeField]
     private int maxHealth = 100;
     public int health;
-    // State
+
+    // Attacks
     public bool canBeDamaged = true;
     public bool canAttack = true;
 
@@ -31,7 +31,8 @@ public class PlayerControl : MonoBehaviour
     {
         rgbd = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        inventory = FindObjectOfType<Inventory>();
+        directionalMovement = GetComponent<DirectionalMovement>();
+        inventory = GetComponent<Inventory>();
         health = maxHealth;
     }
 
@@ -56,41 +57,13 @@ public class PlayerControl : MonoBehaviour
             transform.position = Vector2.zero;
         }
 
-        // Movement - the actual moving happens in FixedUpdate() for consistency reasons
+        // Movement - the actual moving happens in DirectionalMovement.FixedUpdate() for consistency reasons
         float dirX = Input.GetAxisRaw("Horizontal");
         float dirY = Input.GetAxisRaw("Vertical");
-        direction = new Vector3(dirX, dirY).normalized;
-
-        // Animation
-        UpdateAnimation();
+        directionalMovement.direction = new Vector3(dirX, dirY).normalized;
 
     }
 
-    private void UpdateAnimation()
-    {
-        if (direction.magnitude == 0f)
-        { // Not moving
-            animator.SetFloat("LastDirX", lastX);
-            animator.SetFloat("LastDirY", lastY);
-            animator.SetBool("Movement", false);
-        }
-        else
-        { // Moving
-            lastX = direction.x;
-            lastY = direction.y;
-            animator.SetBool("Movement", true);
-        }
-        // Keep track of the faced direction
-        animator.SetFloat("DirX", direction.x);
-        animator.SetFloat("DirY", direction.y);
-    }
-
-    void FixedUpdate()
-    {
-        // Movement - direction is computed in Update() for responsiveness reasons
-        Vector3 movement = direction * moveSpeed * Time.fixedDeltaTime;
-        rgbd.MovePosition(transform.position + movement);
-    }
 
     private void AttackJudgement()
     {

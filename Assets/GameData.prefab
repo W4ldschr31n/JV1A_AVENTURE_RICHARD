@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2147461609530613816}
   - component: {fileID: 5822227749176941663}
-  - component: {fileID: 7080604383080782847}
   - component: {fileID: 7355467585529720481}
   m_Layer: 0
   m_Name: GameData
@@ -48,18 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obolePrefab: {fileID: 5709329042289183038, guid: adfa185393b8502418379036b93df605, type: 3}
   faithPrefab: {fileID: 5709329042289183038, guid: adfa185393b8502418379036b93df605, type: 3}
---- !u!114 &7080604383080782847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6830071265357577593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b235eee242fc5643899c6f11f8f80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7355467585529720481
 MonoBehaviour:
   m_ObjectHideFlags: 0

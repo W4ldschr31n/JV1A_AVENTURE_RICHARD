@@ -57,10 +57,8 @@ public class GameData : MonoBehaviour
         SpawnRewards(obolePrefab, nbRewards, position);
     }
 
-    private void OnEnemyKilled(GameObject enemy, KillMethod killMethod)
+    private void OnEnemyKilled(GameObject enemy, Vector2 position, KillMethod killMethod)
     {
-        // Store enemy position before destroying it
-        Vector2 position = enemy.transform.position;
         Destroy(enemy);
         // Get data for the rewards (judgement->obole; obole->faith)
         int nbRewards = GetRandomNbRewards();

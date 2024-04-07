@@ -4,26 +4,29 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
-    public float speed;
-    private Rigidbody2D rgbd;
+    // Internal components
     [SerializeField]
     private Transform patrolPoint1, patrolPoint2;
+    private DirectionalMovement directionalMovement;
+
+    // Movement
     private Vector3 currentTarget;
     private bool goTowardsFirst = true;
     
     // Start is called before the first frame update
     void Start()
     {
+        directionalMovement = GetComponent<DirectionalMovement>();
         currentTarget = patrolPoint1.position;
-        rgbd = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
+        Vector3 currentDistance = currentTarget - transform.position;
         // Move if not at target
-        if (Vector2.Distance(transform.position, currentTarget) > 0.1f)
+        if (currentDistance.magnitude > 0.1f)
         {
-            rgbd.MovePosition(Vector2.MoveTowards(transform.position, currentTarget, speed * Time.fixedDeltaTime));
+            directionalMovement.direction = currentDistance.normalized;
         }
         else // Switch target
         {
