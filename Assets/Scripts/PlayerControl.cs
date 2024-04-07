@@ -47,7 +47,7 @@ public class PlayerControl : MonoBehaviour
 
             if (Input.GetButtonDown("Fire2"))
             {
-                ThrowObole();
+                AttackObole();
             }
         }
         // Reset
@@ -94,12 +94,13 @@ public class PlayerControl : MonoBehaviour
 
     private void AttackJudgement()
     {
-        animator.Play("JudgementAnimation");
+        animator.SetTrigger("AttackJudgement");
     }
 
-    private void ThrowObole()
+    private void AttackObole()
     {
-        if(inventory.SpendObole())
+        animator.SetTrigger("AttackObole");
+        if (inventory.SpendObole())
         {
             Debug.Log("BOOM");
         }
