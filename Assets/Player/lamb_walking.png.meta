@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c65e997f5a8b09741bd086236661659e
+guid: 16afe6ae40191d34b9b220deb756e32f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bouc_walking_0
+      name: lamb_walking_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b7baef4cf2667c439458494bffc6aca
-      internalID: 945033656
+      spriteID: 374b0033826d76747a3640a5381054bb
+      internalID: 291667143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bouc_walking_1
+      name: lamb_walking_1
       rect:
         serializedVersion: 2
         x: 64
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b85ecae3212c27a44bf5b2674ca079de
-      internalID: -698440403
+      spriteID: 5309a000f5be9af428a4275e00ac834a
+      internalID: 1299118596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bouc_walking_2
+      name: lamb_walking_2
       rect:
         serializedVersion: 2
         x: 128
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf70b47c8dec32d4a9d0eb392aa6051e
-      internalID: 1522637839
+      spriteID: 5c29127f3845ae2408c8d8ecf86640bb
+      internalID: 3708509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bouc_walking_3
+      name: lamb_walking_3
       rect:
         serializedVersion: 2
         x: 192
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4594ec960e2d6bd4da6308a4c97aad37
-      internalID: -1516031815
+      spriteID: 4a2966e34a259e44c9ea4829fef5c0ea
+      internalID: 1657695571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bouc_walking_4
+      name: lamb_walking_4
       rect:
         serializedVersion: 2
         x: 0
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cf5ae1f9a768fc49b820d36b079e060
-      internalID: -910959587
+      spriteID: 940a87e395177364c8fa196d3360ab3b
+      internalID: 808057347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bouc_walking_5
+      name: lamb_walking_5
       rect:
         serializedVersion: 2
         x: 64
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4427c93d5252234ab9b0955752ef719
-      internalID: -69253306
+      spriteID: 9ae5c6e5641fd5949af5c5cdd59b1d62
+      internalID: 905905627
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bouc_walking_6
+      name: lamb_walking_6
       rect:
         serializedVersion: 2
         x: 128
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b09adf2f2646ca246a8c6214d7ee503d
-      internalID: 41299998
+      spriteID: 3d127b13a3b5cb74ead23a16b301d674
+      internalID: -1425804448
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bouc_walking_7
+      name: lamb_walking_7
       rect:
         serializedVersion: 2
         x: 192
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f2f5584cb4db52438edfeeeaed1f1a3
-      internalID: 1146357171
+      spriteID: 80aeca054acfe154a80760a2c3b7312c
+      internalID: 1951322850
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bouc_walking_8
+      name: lamb_walking_8
       rect:
         serializedVersion: 2
         x: 0
@@ -279,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25ee63b50408c734ea55f1ccb0d9a2ed
-      internalID: -837058217
+      spriteID: 1503f614d86fe534b9b0e18ab44c58d1
+      internalID: -171408380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bouc_walking_9
+      name: lamb_walking_9
       rect:
         serializedVersion: 2
         x: 64
@@ -300,14 +300,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffb33ea576ce0ec48b32bd7227844651
-      internalID: -205688322
+      spriteID: 79074e5800dab9e4aabec6c41e0de805
+      internalID: 2069030176
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bouc_walking_10
+      name: lamb_walking_10
       rect:
         serializedVersion: 2
         x: 128
@@ -321,14 +321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8263e49481b016b478f88d19941fa7dd
-      internalID: -1943751774
+      spriteID: c0f8eba13c5355d4b84f3a341bcc056a
+      internalID: 1586423113
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bouc_walking_11
+      name: lamb_walking_11
       rect:
         serializedVersion: 2
         x: 192
@@ -342,14 +342,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6059d49c3f5cfdd4a800579c7ae4b356
-      internalID: -973982384
+      spriteID: a722c24a49a528a41b00d7cb910e497a
+      internalID: -1903264822
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bouc_walking_12
+      name: lamb_walking_12
       rect:
         serializedVersion: 2
         x: 0
@@ -363,14 +363,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ae0799d45b517e44b96f1a689f04381
-      internalID: 1794321753
+      spriteID: 1d9a0435c8ffc7145b63cc5fe225253d
+      internalID: -2072908954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bouc_walking_13
+      name: lamb_walking_13
       rect:
         serializedVersion: 2
         x: 64
@@ -384,14 +384,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 833e5917c40895545aeb28c0ae0a5d01
-      internalID: -583044153
+      spriteID: ac9aed920e0a51849b08b256a3fd5503
+      internalID: -1501858019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bouc_walking_14
+      name: lamb_walking_14
       rect:
         serializedVersion: 2
         x: 128
@@ -405,14 +405,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6039f5192c3be1b48a795508f259c089
-      internalID: 222414603
+      spriteID: 97ad044777d38f041bd2dd79e7c793a9
+      internalID: 2016664993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bouc_walking_15
+      name: lamb_walking_15
       rect:
         serializedVersion: 2
         x: 192
@@ -426,8 +426,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c27d03383a85ac468d484a187d5eb66
-      internalID: 584172906
+      spriteID: 65b00a72c4b1dc644900a1e84d920b4e
+      internalID: 809509042
       vertices: []
       indices: 
       edges: []
@@ -443,22 +443,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bouc_walking_0: 945033656
-      bouc_walking_1: -698440403
-      bouc_walking_10: -1943751774
-      bouc_walking_11: -973982384
-      bouc_walking_12: 1794321753
-      bouc_walking_13: -583044153
-      bouc_walking_14: 222414603
-      bouc_walking_15: 584172906
-      bouc_walking_2: 1522637839
-      bouc_walking_3: -1516031815
-      bouc_walking_4: -910959587
-      bouc_walking_5: -69253306
-      bouc_walking_6: 41299998
-      bouc_walking_7: 1146357171
-      bouc_walking_8: -837058217
-      bouc_walking_9: -205688322
+      lamb_walking_0: 291667143
+      lamb_walking_1: 1299118596
+      lamb_walking_10: 1586423113
+      lamb_walking_11: -1903264822
+      lamb_walking_12: -2072908954
+      lamb_walking_13: -1501858019
+      lamb_walking_14: 2016664993
+      lamb_walking_15: 809509042
+      lamb_walking_2: 3708509
+      lamb_walking_3: 1657695571
+      lamb_walking_4: 808057347
+      lamb_walking_5: 905905627
+      lamb_walking_6: -1425804448
+      lamb_walking_7: 1951322850
+      lamb_walking_8: -171408380
+      lamb_walking_9: 2069030176
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
