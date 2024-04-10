@@ -83,6 +83,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (canBeDamaged)
         {
+            Debug.Log("OUILLE");
             animator.SetTrigger("Hit");
             health = Math.Max(0, health - damage);
             onPlayerTakeHit?.Invoke();
