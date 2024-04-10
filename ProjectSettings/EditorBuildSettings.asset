@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneDroite.unity
     guid: 6b59ab0654fd3c64b92847a6d264ee46
+  - enabled: 1
+    path: Assets/Scenes/SceneStyx.unity
+    guid: b03bf40e72301f74ea71d17c97830ed3
   m_configObjects: {}

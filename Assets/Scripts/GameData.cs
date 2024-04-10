@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,15 +14,19 @@ public class GameData : MonoBehaviour
     public GameObject obolePrefab;
     public GameObject faithPrefab;
     public const int FAITH_HEAL = 15;
+    public SceneAsset sceneToPlay;
     // Start is called before the first frame update
     void Start()
     {
+        // Init global stuff
         SceneManager.sceneLoaded += OnSceneLoaded;
         LostSoul.onLostSoulFreed += OnLostSoulFreed;
         EnemyBehaviour.onEnemyKilled += OnEnemyKilled;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
-        SceneManager.LoadScene(1); // SceneMilieu
+        // Move player to the real game after init
+        spawnDirection = Direction.Center;
+        SceneManager.LoadScene(sceneToPlay.name);
     }
 
     // Update is called once per frame

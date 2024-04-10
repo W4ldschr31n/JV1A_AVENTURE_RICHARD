@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class StartSceneWindow : EditorWindow
 {
-    private SceneAsset selectedScene;
-    private int selectedButton = 0;
+    private SceneAsset selectedStartScene;
+    private int selectedStartButton = 0;
     void OnGUI()
     {
-        // Use the Object Picker to select the start SceneAsset
-        selectedScene = (SceneAsset)EditorGUILayout.ObjectField(new GUIContent("Start Scene"), selectedScene, typeof(SceneAsset), false);
         string[] opts = { "Starting scene", "Current scene" };
-        selectedButton = GUILayout.SelectionGrid(selectedButton, opts, 2, EditorStyles.radioButton);
-        if (selectedButton == 0)
+        // Use the Object Picker to select the start SceneAsset
+        selectedStartScene = (SceneAsset)EditorGUILayout.ObjectField(new GUIContent("Start Scene"), selectedStartScene, typeof(SceneAsset), false);
+        selectedStartButton = GUILayout.SelectionGrid(selectedStartButton, opts, 2, EditorStyles.radioButton);
+        if (selectedStartButton == 0)
         {
-            EditorSceneManager.playModeStartScene = selectedScene;
+            EditorSceneManager.playModeStartScene = selectedStartScene;
         }
         else
         {
