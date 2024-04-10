@@ -8,6 +8,7 @@ public class DirectionalMovement : MonoBehaviour
     private Rigidbody2D rgbd;
     private Animator animator;
     // Movement
+    public bool canMove = true;
     public float moveSpeed;
     [HideInInspector]
     public Vector3 direction;
@@ -23,7 +24,7 @@ public class DirectionalMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (direction.magnitude == 0f)
+        if (direction.magnitude == 0f || !canMove)
         { // Not moving
             animator.SetFloat("LastDirX", lastX);
             animator.SetFloat("LastDirY", lastY);
@@ -43,7 +44,10 @@ public class DirectionalMovement : MonoBehaviour
     void FixedUpdate()
     {
         // Movement - direction is computed in <T>.Update() for responsiveness reasons
-        Vector3 movement = direction * moveSpeed * Time.fixedDeltaTime;
-        rgbd.MovePosition(transform.position + movement);
+        if (canMove)
+        {
+            Vector3 movement = direction * moveSpeed * Time.fixedDeltaTime;
+            rgbd.MovePosition(transform.position + movement);
+        }
     }
 }
