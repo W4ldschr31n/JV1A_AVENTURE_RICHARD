@@ -12,13 +12,14 @@ public class DirectionalMovement : MonoBehaviour
     public float moveSpeed;
     [HideInInspector]
     public Vector3 direction;
-    [HideInInspector]
+    //[HideInInspector]
     public float lastX, lastY;
 
     private void Start()
     {
         rgbd = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        lastY = -1f; // Force facing down at start
     }
 
     // Update is called once per frame

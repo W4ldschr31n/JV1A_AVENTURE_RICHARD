@@ -11,6 +11,8 @@ public class PlayerControl : MonoBehaviour
     private Animator animator;
     private DirectionalMovement directionalMovement;
     private Inventory inventory;
+    [SerializeField]
+    private Transform attackSpot;
     
     // Events
     public static event Action onPlayerTakeHit;
@@ -61,6 +63,15 @@ public class PlayerControl : MonoBehaviour
         float dirX = Input.GetAxisRaw("Horizontal");
         float dirY = Input.GetAxisRaw("Vertical");
         directionalMovement.direction = new Vector3(dirX, dirY).normalized;
+
+        // Move attack spot accordingly
+        Vector3 offset = new Vector3(directionalMovement.lastX, directionalMovement.lastY, 0f);
+        // Diagonals don't make sense for attack directions, Y direction is favored;
+        if (offset.y != 0f) {
+            offset.x = 0f;
+            offset.Normalize();
+        }
+        attackSpot.position = transform.position + offset;
 
     }
 
