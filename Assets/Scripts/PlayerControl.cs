@@ -13,6 +13,9 @@ public class PlayerControl : MonoBehaviour
     private Inventory inventory;
     [SerializeField]
     private Transform attackSpot;
+
+    // External components
+    public GameObject projectilePrefab;
     
     // Events
     public static event Action onPlayerTakeHit;
@@ -87,6 +90,7 @@ public class PlayerControl : MonoBehaviour
         if (inventory.SpendObole())
         {
             Debug.Log("BOOM");
+            Instantiate(projectilePrefab, attackSpot.position, Quaternion.identity);
         }
     }
 

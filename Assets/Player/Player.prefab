@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: -1649955100, guid: 46fa04f3358b4364993126f83102aff0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -252,6 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpot: {fileID: 6697917630569360969}
+  projectilePrefab: {fileID: 5033481522864341928, guid: d26e5f3ba1ed3b4439d0397c4b705334, type: 3}
   maxHealth: 100
   health: 0
   canBeDamaged: 1
