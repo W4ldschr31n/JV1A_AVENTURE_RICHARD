@@ -31,6 +31,9 @@ public class PlayerControl : MonoBehaviour
     public bool canBeDamaged = true;
     public bool canAttack = true;
     private Vector3 attackDirection;
+    private bool isCharging = false;
+    [SerializeField]
+    private float chargeSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -51,10 +54,14 @@ public class PlayerControl : MonoBehaviour
             {
                 AttackJudgement();
             }
-
-            if (Input.GetButtonDown("Fire2"))
+            else if (Input.GetButtonDown("Fire2"))
             {
                 AttackObole();
+            }
+            else if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("Alo");
+                AttackCharge();
             }
         }
         // Reset
@@ -109,11 +116,28 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    private void AttackCharge()
+    {
+        Debug.Log("Oulah");
+        Debug.Log(directionalMovement.canMove);
+        directionalMovement.canMove = false;
+        rgbd.drag = 0;
+        rgbd.AddRelativeForce(attackDirection * chargeSpeed, ForceMode2D.Impulse);
+        Debug.Log(directionalMovement.canMove);
+    }
+
+    private void FixedUpdate()
+    {
+        if (isCharging)
+        {
+
+        }
+    }
+
     public void TakeHit(int damage)
     {
         if (canBeDamaged)
         {
-            Debug.Log("OUILLE");
             animator.SetTrigger("Hit");
             health = Math.Max(0, health - damage);
             onPlayerTakeHit?.Invoke();

@@ -224,7 +224,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 100
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -257,6 +257,7 @@ MonoBehaviour:
   health: 0
   canBeDamaged: 1
   canAttack: 1
+  chargeSpeed: 10
 --- !u!114 &4153246500626454319
 MonoBehaviour:
   m_ObjectHideFlags: 0

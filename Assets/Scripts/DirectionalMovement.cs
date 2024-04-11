@@ -10,7 +10,7 @@ public class DirectionalMovement : MonoBehaviour
     // Movement
     public bool canMove = true;
     public float moveSpeed;
-    //[HideInInspector]
+    [HideInInspector]
     public Vector3 direction;
     [HideInInspector]
     public float lastX, lastY;
