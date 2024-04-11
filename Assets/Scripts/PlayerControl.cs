@@ -30,6 +30,7 @@ public class PlayerControl : MonoBehaviour
     // Attacks
     public bool canBeDamaged = true;
     public bool canAttack = true;
+    private Vector3 attackDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -68,13 +69,13 @@ public class PlayerControl : MonoBehaviour
         directionalMovement.direction = new Vector3(dirX, dirY).normalized;
 
         // Move attack spot accordingly
-        Vector3 offset = new Vector3(directionalMovement.lastX, directionalMovement.lastY, 0f);
+        attackDirection = new Vector3(directionalMovement.lastX, directionalMovement.lastY, 0f);
         // Diagonals don't make sense for attack directions, Y direction is favored;
-        if (offset.y != 0f) {
-            offset.x = 0f;
-            offset.Normalize();
+        if (attackDirection.y != 0f) {
+            attackDirection.x = 0f;
+            attackDirection.Normalize();
         }
-        attackSpot.position = transform.position + offset;
+        attackSpot.position = transform.position + attackDirection;
 
     }
 
@@ -86,11 +87,25 @@ public class PlayerControl : MonoBehaviour
 
     private void AttackObole()
     {
-        animator.SetTrigger("AttackObole");
         if (inventory.SpendObole())
         {
-            Debug.Log("BOOM");
-            Instantiate(projectilePrefab, attackSpot.position, Quaternion.identity);
+            // Transform the direction into a rotation around Z axis
+            float z;
+            if(attackDirection.y == 1)
+            {
+                z = 90f;
+            }else if(attackDirection.y == -1)
+            {
+                z = -90f;
+            }else if(attackDirection.x == 1)
+            {
+                z = 0f;
+            }else // attackDirection.x == -1
+            {
+                z = 180f;
+            }
+            Instantiate(projectilePrefab, attackSpot.position, Quaternion.Euler(new Vector3(0f, 0f, z)));
+            animator.SetTrigger("AttackObole");
         }
     }
 

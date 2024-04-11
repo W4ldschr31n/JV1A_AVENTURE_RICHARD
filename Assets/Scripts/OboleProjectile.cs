@@ -8,18 +8,14 @@ public class OboleProjectile : MonoBehaviour
     private Rigidbody2D rgbd;
     void Start()
     {
+        // Propel the projectile only once
         rgbd = GetComponent<Rigidbody2D>();
         rgbd.AddForce(speed * transform.right, ForceMode2D.Impulse);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    private void FixedUpdate()
-    {
-        
+        Destroy(gameObject);
     }
 }
+
