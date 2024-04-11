@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: Water1
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 687121040, guid: 4b5f484f1f007c8419b3a4ac2b937ce7, type: 3}
-  - {fileID: -269301512, guid: 4b5f484f1f007c8419b3a4ac2b937ce7, type: 3}
-  - {fileID: 1838911673, guid: 4b5f484f1f007c8419b3a4ac2b937ce7, type: 3}
-  - {fileID: -1127959434, guid: 4b5f484f1f007c8419b3a4ac2b937ce7, type: 3}
+  - {fileID: 273254251, guid: 76962a71091c4ab43b1b1e23be6fcdde, type: 3}
+  - {fileID: -379877892, guid: 76962a71091c4ab43b1b1e23be6fcdde, type: 3}
+  - {fileID: -858491968, guid: 76962a71091c4ab43b1b1e23be6fcdde, type: 3}
+  - {fileID: 47426515, guid: 76962a71091c4ab43b1b1e23be6fcdde, type: 3}
+  - {fileID: 1091469463, guid: 76962a71091c4ab43b1b1e23be6fcdde, type: 3}
+  - {fileID: -1781303579, guid: 76962a71091c4ab43b1b1e23be6fcdde, type: 3}
+  - {fileID: -944370387, guid: 76962a71091c4ab43b1b1e23be6fcdde, type: 3}
+  - {fileID: -1695325347, guid: 76962a71091c4ab43b1b1e23be6fcdde, type: 3}
   m_MinSpeed: 6
   m_MaxSpeed: 6
   m_AnimationStartTime: 0
