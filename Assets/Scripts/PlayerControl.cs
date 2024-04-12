@@ -34,6 +34,10 @@ public class PlayerControl : MonoBehaviour
     private bool isCharging = false;
     [SerializeField]
     private float chargeSpeed;
+    [SerializeField]
+    private LayerMask wallLayer;
+    private float originalDrag;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +47,7 @@ public class PlayerControl : MonoBehaviour
         directionalMovement = GetComponent<DirectionalMovement>();
         inventory = GetComponent<Inventory>();
         health = maxHealth;
+        originalDrag = rgbd.drag;
     }
 
     private void Update()
@@ -118,19 +123,31 @@ public class PlayerControl : MonoBehaviour
 
     private void AttackCharge()
     {
-        Debug.Log("Oulah");
-        Debug.Log(directionalMovement.canMove);
-        directionalMovement.canMove = false;
+        animator.SetTrigger("AttackCharge");
+        // Force linear movement
         rgbd.drag = 0;
         rgbd.AddRelativeForce(attackDirection * chargeSpeed, ForceMode2D.Impulse);
-        Debug.Log(directionalMovement.canMove);
+        isCharging = true;
     }
 
     private void FixedUpdate()
     {
         if (isCharging)
         {
-
+            // While charging, scan ahead to stop on a wall
+            RaycastHit2D hit = Physics2D.Linecast(transform.position, attackSpot.position, wallLayer);
+            if (hit)
+            {
+                animator.SetTrigger("ChargeWall");
+                isCharging = false;
+                // Stop linear movement
+                rgbd.drag = originalDrag;
+                // If we hit a destructible wall, destroy it
+                if (hit.collider.gameObject.CompareTag("DestructibleWall"))
+                {
+                    hit.collider.gameObject.GetComponent<DestructibleWall>().GetHit();
+                }
+            }
         }
     }
 

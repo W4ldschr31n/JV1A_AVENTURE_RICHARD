@@ -9,11 +9,12 @@ TagManager:
   - Enemy
   - LostSoul
   - OboleProjectile
+  - DestructibleWall
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Walls
   - Water
   - UI
   - 

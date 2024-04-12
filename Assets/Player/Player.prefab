@@ -258,6 +258,9 @@ MonoBehaviour:
   canBeDamaged: 1
   canAttack: 1
   chargeSpeed: 10
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &4153246500626454319
 MonoBehaviour:
   m_ObjectHideFlags: 0
