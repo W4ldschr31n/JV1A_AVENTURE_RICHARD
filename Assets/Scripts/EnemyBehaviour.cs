@@ -33,6 +33,10 @@ public class EnemyBehaviour : MonoBehaviour
         {
             onEnemyKilled?.Invoke(gameObject.transform.parent.gameObject, transform.position, KillMethod.Obole);
         }
+        else if (collision.gameObject.CompareTag("Charge"))
+        {
+            onEnemyKilled?.Invoke(gameObject.transform.parent.gameObject, transform.position, KillMethod.Charge);
+        }
     }
 
 
@@ -43,4 +47,5 @@ public enum KillMethod
 {
     Judgement,
     Obole,
+    Charge,
 }

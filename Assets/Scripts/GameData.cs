@@ -65,9 +65,9 @@ public class GameData : MonoBehaviour
     private void OnEnemyKilled(GameObject enemy, Vector2 position, KillMethod killMethod)
     {
         Destroy(enemy);
-        // Get data for the rewards (judgement->obole; obole->faith)
+        // Get data for the rewards (judgement or charge ->obole; obole->faith)
         int nbRewards = GetRandomNbRewards();
-        GameObject rewardObject = killMethod == KillMethod.Judgement ? obolePrefab : faithPrefab;
+        GameObject rewardObject = killMethod == KillMethod.Obole ? faithPrefab : obolePrefab;
         SpawnRewards(rewardObject, nbRewards, position);
     }
 

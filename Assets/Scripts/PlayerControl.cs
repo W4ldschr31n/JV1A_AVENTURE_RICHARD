@@ -138,7 +138,7 @@ public class PlayerControl : MonoBehaviour
             RaycastHit2D hit = Physics2D.Linecast(transform.position, attackSpot.position, wallLayer);
             if (hit)
             {
-                animator.SetTrigger("ChargeWall");
+                animator.SetTrigger("ChargeStun");
                 isCharging = false;
                 // Stop linear movement
                 rgbd.drag = originalDrag;

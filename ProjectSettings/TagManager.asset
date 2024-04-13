@@ -10,6 +10,7 @@ TagManager:
   - LostSoul
   - OboleProjectile
   - DestructibleWall
+  - Charge
   layers:
   - Default
   - TransparentFX
