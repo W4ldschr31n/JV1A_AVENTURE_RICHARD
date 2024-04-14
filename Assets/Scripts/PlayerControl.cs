@@ -8,11 +8,14 @@ public class PlayerControl : MonoBehaviour
 {
     // Internal components
     private Rigidbody2D rgbd;
+    private Collider2D playerHitbox;
     private Animator animator;
     private DirectionalMovement directionalMovement;
     private Inventory inventory;
     [SerializeField]
     private Transform attackSpot;
+    [SerializeField]
+    private Transform chargeTransform;
 
     // External components
     public GameObject projectilePrefab;
@@ -43,6 +46,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         rgbd = GetComponent<Rigidbody2D>();
+        playerHitbox = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
         directionalMovement = GetComponent<DirectionalMovement>();
         inventory = GetComponent<Inventory>();
@@ -69,6 +73,8 @@ public class PlayerControl : MonoBehaviour
                 AttackCharge();
             }
         }
+        // Cancel Charge ?
+
         // Reset
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -125,27 +131,56 @@ public class PlayerControl : MonoBehaviour
     {
         animator.SetTrigger("AttackCharge");
         // Force linear movement
+        rgbd.velocity = Vector3.zero;
         rgbd.drag = 0;
         rgbd.AddRelativeForce(attackDirection * chargeSpeed, ForceMode2D.Impulse);
         isCharging = true;
+        // Adapt the charge direction
+        float z;
+        if (attackDirection.y == 1)
+        {
+            z = 90f;
+        }
+        else if (attackDirection.y == -1)
+        {
+            z = -90f;
+        }
+        else if (attackDirection.x == 1)
+        {
+            z = 0f;
+        }
+        else // attackDirection.x == -1
+        {
+            z = 180f;
+        }
+        chargeTransform.eulerAngles = new Vector3(0f, 0f, z);
     }
 
     private void FixedUpdate()
     {
         if (isCharging)
         {
-            // While charging, scan ahead to stop on a wall
-            RaycastHit2D hit = Physics2D.Linecast(transform.position, attackSpot.position, wallLayer);
-            if (hit)
+            // While charging, scan ahead for a wall
+            List<RaycastHit2D> hits = new List<RaycastHit2D>();
+            ContactFilter2D contactFilter = new ContactFilter2D();
+            contactFilter.SetLayerMask(wallLayer);
+            float scanDistance = 0.5f;
+            playerHitbox.Cast(attackDirection, contactFilter, hits, scanDistance);
+            // If there is wall in front of us, stop charging
+            if (hits.Count > 0)
             {
                 animator.SetTrigger("ChargeStun");
                 isCharging = false;
                 // Stop linear movement
                 rgbd.drag = originalDrag;
+                rgbd.velocity = Vector3.zero;
                 // If we hit a destructible wall, destroy it
-                if (hit.collider.gameObject.CompareTag("DestructibleWall"))
+                foreach(RaycastHit2D hit in hits)
                 {
-                    hit.collider.gameObject.GetComponent<DestructibleWall>().GetHit();
+                    if (hit.collider.gameObject.CompareTag("DestructibleWall"))
+                    {
+                        hit.collider.gameObject.GetComponent<DestructibleWall>().GetHit();
+                    }
                 }
             }
         }
@@ -156,8 +191,10 @@ public class PlayerControl : MonoBehaviour
         if (canBeDamaged)
         {
             animator.SetTrigger("Hit");
+            // Lose health
             health = Math.Max(0, health - damage);
             onPlayerTakeHit?.Invoke();
+            // Check if dead
             if (health <= 0)
             {
                 Die();
