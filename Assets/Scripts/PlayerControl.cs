@@ -107,22 +107,8 @@ public class PlayerControl : MonoBehaviour
     {
         if (inventory.SpendObole())
         {
-            // Transform the direction into a rotation around Z axis
-            float z;
-            if(attackDirection.y == 1)
-            {
-                z = 90f;
-            }else if(attackDirection.y == -1)
-            {
-                z = -90f;
-            }else if(attackDirection.x == 1)
-            {
-                z = 0f;
-            }else // attackDirection.x == -1
-            {
-                z = 180f;
-            }
-            Instantiate(projectilePrefab, attackSpot.position, Quaternion.Euler(new Vector3(0f, 0f, z)));
+            GameObject projectile = Instantiate(projectilePrefab, attackSpot.position, Quaternion.identity);
+            projectile.GetComponent<OboleProjectile>().direction = attackDirection;
             animator.SetTrigger("AttackObole");
         }
     }
@@ -136,24 +122,7 @@ public class PlayerControl : MonoBehaviour
         rgbd.AddRelativeForce(attackDirection * chargeSpeed, ForceMode2D.Impulse);
         isCharging = true;
         // Adapt the charge direction
-        float z;
-        if (attackDirection.y == 1)
-        {
-            z = 90f;
-        }
-        else if (attackDirection.y == -1)
-        {
-            z = -90f;
-        }
-        else if (attackDirection.x == 1)
-        {
-            z = 0f;
-        }
-        else // attackDirection.x == -1
-        {
-            z = 180f;
-        }
-        chargeTransform.eulerAngles = new Vector3(0f, 0f, z);
+        chargeTransform.right = attackDirection;
     }
 
     private void FixedUpdate()
