@@ -75,7 +75,6 @@ public class PlayerControl : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("Alo");
                 AttackCharge();
             }
         }

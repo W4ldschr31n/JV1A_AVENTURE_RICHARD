@@ -20,7 +20,6 @@ public class PuzzleGatherSouls : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(GameObject.FindGameObjectsWithTag("LostSoul").Length);
         if (
             collision.gameObject.CompareTag("Judgement") 
             && 
