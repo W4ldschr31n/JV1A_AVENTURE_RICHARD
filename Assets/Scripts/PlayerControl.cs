@@ -41,6 +41,11 @@ public class PlayerControl : MonoBehaviour
     private LayerMask wallLayer;
     private float originalDrag;
 
+    // Sounds
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip[] judgementAudio;
+
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +55,7 @@ public class PlayerControl : MonoBehaviour
         animator = GetComponent<Animator>();
         directionalMovement = GetComponent<DirectionalMovement>();
         inventory = GetComponent<Inventory>();
+        audioSource = GetComponent<AudioSource>();
         health = maxHealth;
         originalDrag = rgbd.drag;
     }
@@ -101,6 +107,18 @@ public class PlayerControl : MonoBehaviour
     private void AttackJudgement()
     {
         animator.SetTrigger("AttackJudgement");
+    }
+
+    public void PlayJudgementSound()
+    {
+        AudioClip randomClip = judgementAudio[UnityEngine.Random.Range(0, judgementAudio.Length)];
+        audioSource.clip = randomClip;
+        audioSource.Play();
+    }
+
+    public void StopSound()
+    {
+        audioSource.Stop();
     }
 
     private void AttackObole()
