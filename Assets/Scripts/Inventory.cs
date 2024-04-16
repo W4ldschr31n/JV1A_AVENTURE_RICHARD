@@ -7,10 +7,12 @@ public class Inventory : MonoBehaviour
 {
     private int nbOboles;
     public static event Action onOboleSpent;
+    private SortedSet<Item> items;
     // Start is called before the first frame update
     void Start()
     {
         Obole.onOboleCollected += CollectObole;
+        items = new SortedSet<Item>();
     }
 
     // Update is called once per frame
@@ -37,5 +39,20 @@ public class Inventory : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void AddItem(Item item)
+    {
+        items.Add(item);
+    }
+
+    public SortedSet<Item> GetItems()
+    {
+        return items;
+    }
+
+    public bool CheckHasItem(Item item)
+    {
+        return items.Contains(item);
     }
 }
