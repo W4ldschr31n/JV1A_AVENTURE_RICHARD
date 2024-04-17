@@ -12,9 +12,18 @@ public class LifeBar : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<PlayerControl>();
+        UpdateLife();
+    }
+    private void OnEnable()
+    {
         PlayerControl.onPlayerHeal += UpdateLife;
         PlayerControl.onPlayerTakeHit += UpdateLife;
-        UpdateLife();
+    }
+
+    private void OnDisable()
+    {
+        PlayerControl.onPlayerHeal -= UpdateLife;
+        PlayerControl.onPlayerTakeHit -= UpdateLife;
     }
 
     // Update is called once per frame

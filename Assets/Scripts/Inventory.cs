@@ -11,8 +11,17 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Obole.onOboleCollected += CollectObole;
         items = new SortedSet<Item>();
+    }
+
+    private void OnEnable()
+    {
+        Obole.onOboleCollected += CollectObole;
+    }
+
+    private void OnDisable()
+    {
+        Obole.onOboleCollected -= CollectObole;
     }
 
     // Update is called once per frame

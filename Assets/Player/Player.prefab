@@ -298,20 +298,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpot: {fileID: 6697917630569360969}
   chargeTransform: {fileID: 6559366693582808897}
+  judgementAudio:
+  - {fileID: 8300000, guid: 6c8c99c54ac872a4e837afea421ddcf1, type: 3}
+  - {fileID: 8300000, guid: de7361628395f9346a08c522fb6990bc, type: 3}
+  - {fileID: 8300000, guid: 5087cdd30d5af9140b6fd0fc3bb1dba9, type: 3}
+  - {fileID: 8300000, guid: d4718941802810d48bbc4cc1388bd6b7, type: 3}
   projectilePrefab: {fileID: 5033481522864341928, guid: d26e5f3ba1ed3b4439d0397c4b705334, type: 3}
   maxHealth: 100
-  health: 0
+  health: 100
   canBeDamaged: 1
   canAttack: 1
   chargeSpeed: 10
   wallLayer:
     serializedVersion: 2
     m_Bits: 8
-  judgementAudio:
-  - {fileID: 8300000, guid: 6c8c99c54ac872a4e837afea421ddcf1, type: 3}
-  - {fileID: 8300000, guid: de7361628395f9346a08c522fb6990bc, type: 3}
-  - {fileID: 8300000, guid: 5087cdd30d5af9140b6fd0fc3bb1dba9, type: 3}
-  - {fileID: 8300000, guid: d4718941802810d48bbc4cc1388bd6b7, type: 3}
 --- !u!114 &4153246500626454319
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,18 +15,32 @@ public class GameData : MonoBehaviour
     public GameObject faithPrefab;
     public const int FAITH_HEAL = 15;
     public SceneAsset sceneToPlay;
+    public SceneAsset sceneInventory;
+    public bool isInventoryOpen;
     // Start is called before the first frame update
     void Start()
     {
         // Init global stuff
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        LostSoul.onLostSoulFreed += OnLostSoulFreed;
-        EnemyBehaviour.onEnemyKilled += OnEnemyKilled;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
+        isInventoryOpen = false;
         // Move player to the real game after init
         spawnDirection = Direction.Center;
         SceneManager.LoadScene(sceneToPlay.name);
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        LostSoul.onLostSoulFreed += OnLostSoulFreed;
+        EnemyBehaviour.onEnemyKilled += OnEnemyKilled;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        LostSoul.onLostSoulFreed -= OnLostSoulFreed;
+        EnemyBehaviour.onEnemyKilled -= OnEnemyKilled;
     }
 
     // Update is called once per frame
@@ -49,9 +63,13 @@ public class GameData : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        levelData = FindObjectOfType<LevelData>();
-        spawnPoint = levelData.GetSpawnPoint(spawnDirection);
-        MovePlayerToSpawn();
+        // Move player if we move to another scene
+        if (mode == LoadSceneMode.Single)
+        {
+            levelData = FindObjectOfType<LevelData>();
+            spawnPoint = levelData.GetSpawnPoint(spawnDirection);
+            MovePlayerToSpawn();
+        }
     }
 
     private void OnLostSoulFreed(LostSoul lostSoul)
@@ -89,6 +107,23 @@ public class GameData : MonoBehaviour
         {
             offset = new Vector2(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
             Instantiate(rewardObject, position + offset, Quaternion.identity);
+        }
+    }
+
+    public void ToggleInventory()
+    {
+        if (!isInventoryOpen)
+        {
+            isInventoryOpen = true;
+            // 'Pause' the game
+            Time.timeScale = 0f;
+            SceneManager.LoadScene(sceneInventory.name, LoadSceneMode.Additive);
+        } else
+        {
+            isInventoryOpen = false;
+            // 'Resume the game'
+            Time.timeScale = 1f;
+            SceneManager.UnloadSceneAsync(sceneInventory.name);
         }
     }
 }

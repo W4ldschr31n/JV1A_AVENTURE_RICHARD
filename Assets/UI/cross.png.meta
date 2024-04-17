@@ -138,6 +138,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: cross_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dea96dbbfdb8224fad5d783c18dee41
+      internalID: 166059467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -151,6 +172,7 @@ TextureImporter:
     nameFileIdTable:
       cross_0: 2067242931
       cross_1: -478544790
+      cross_2: 166059467
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

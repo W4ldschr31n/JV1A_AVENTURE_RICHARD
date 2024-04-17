@@ -12,9 +12,19 @@ public class OboleCounter : MonoBehaviour
     {
         textCounter = GetComponent<Text>();
         inventory = FindObjectOfType<Inventory>();
+        UpdateCounter();
+    }
+
+    private void OnEnable()
+    {
         Obole.onOboleCollected += UpdateCounter;
         Inventory.onOboleSpent += UpdateCounter;
-        UpdateCounter();
+    }
+
+    private void OnDisable()
+    {
+        Obole.onOboleCollected += UpdateCounter;
+        Inventory.onOboleSpent += UpdateCounter;
     }
 
     // Update is called once per frame

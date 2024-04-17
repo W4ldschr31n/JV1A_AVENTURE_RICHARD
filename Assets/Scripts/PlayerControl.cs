@@ -16,9 +16,14 @@ public class PlayerControl : MonoBehaviour
     private Transform attackSpot;
     [SerializeField]
     private Transform chargeTransform;
+    // Sounds
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip[] judgementAudio;
 
     // External components
     public GameObject projectilePrefab;
+    private GameData gameData;
     
     // Events
     public static event Action onPlayerTakeHit;
@@ -41,10 +46,6 @@ public class PlayerControl : MonoBehaviour
     private LayerMask wallLayer;
     private float originalDrag;
 
-    // Sounds
-    private AudioSource audioSource;
-    [SerializeField]
-    private AudioClip[] judgementAudio;
 
 
     // Start is called before the first frame update
@@ -56,12 +57,24 @@ public class PlayerControl : MonoBehaviour
         directionalMovement = GetComponent<DirectionalMovement>();
         inventory = GetComponent<Inventory>();
         audioSource = GetComponent<AudioSource>();
+        gameData = FindObjectOfType<GameData>();
         health = maxHealth;
         originalDrag = rgbd.drag;
     }
 
     private void Update()
     {
+        // Inventory
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            gameData.ToggleInventory();
+        }
+        // Restrict actions when inventory is open
+        if (gameData.isInventoryOpen)
+        {
+            return;
+        }
+
         // Attack
         if (canAttack)
         { 
@@ -79,7 +92,7 @@ public class PlayerControl : MonoBehaviour
             }
         }
         // Cancel Charge ?
-
+        
         // Reset
         if (Input.GetKeyDown(KeyCode.R))
         {
