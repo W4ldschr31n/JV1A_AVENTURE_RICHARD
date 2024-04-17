@@ -11,6 +11,7 @@ TagManager:
   - OboleProjectile
   - DestructibleWall
   - Charge
+  - DialogueText
   layers:
   - Default
   - TransparentFX

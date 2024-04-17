@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GateOpeneritem : MonoBehaviour
+public class GateOpenerItem : MonoBehaviour
 {
     private Gate gate;
     private bool isActif = true;
     private Inventory inventory;
     public Item item;
+    public string message;
 
     private void Start()
     {
@@ -18,10 +19,16 @@ public class GateOpeneritem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isActif && collision.gameObject.CompareTag("Judgement") && inventory.CheckHasItem(item))
+        if (isActif && collision.gameObject.CompareTag("Judgement"))
         {
-            gate.OpenGate();
-            isActif = false;
+            if (inventory.CheckHasItem(item))
+            {
+                gate.OpenGate();
+                isActif = false;
+            }else
+            {
+                gate.DisplayMessage(message);
+            }
         }
     }
 }
