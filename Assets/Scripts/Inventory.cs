@@ -7,6 +7,8 @@ using System.Linq;
 public class Inventory : MonoBehaviour
 {
     private int nbOboles;
+    public bool hasFirstSeal;
+    public bool hasSecondSeal;
     public static event Action onOboleSpent;
     public static event Action onItemAdded;
     private List<Item> items;
