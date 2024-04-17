@@ -12,6 +12,7 @@ TagManager:
   - DestructibleWall
   - Charge
   - DialogueText
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -19,11 +20,11 @@ TagManager:
   - Walls
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemies
+  - Player
+  - Projectiles
+  - Drops
+  - NPCs
   - 
   - 
   - 

@@ -23,8 +23,8 @@ public class OboleCounter : MonoBehaviour
 
     private void OnDisable()
     {
-        Obole.onOboleCollected += UpdateCounter;
-        Inventory.onOboleSpent += UpdateCounter;
+        Obole.onOboleCollected -= UpdateCounter;
+        Inventory.onOboleSpent -= UpdateCounter;
     }
 
     // Update is called once per frame

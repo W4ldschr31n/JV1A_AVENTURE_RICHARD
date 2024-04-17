@@ -18,16 +18,6 @@ public class Inventory : MonoBehaviour
         items = new List<Item>();
     }
 
-    private void OnEnable()
-    {
-        Obole.onOboleCollected += CollectObole;
-    }
-
-    private void OnDisable()
-    {
-        Obole.onOboleCollected -= CollectObole;
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -56,8 +46,12 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(Item item)
     {
-        items.Add(item);
-        onItemAdded?.Invoke();
+        if(items.Count < 3)
+        {
+            items.Add(item);
+            onItemAdded?.Invoke();
+        }
+        // else: not supposed to happen  ¯\_(?)_/¯
     }
 
     public Item[] GetItems()

@@ -205,7 +205,6 @@ public class PlayerControl : MonoBehaviour
 
     public void TakeFaith()
     {
-        animator.SetTrigger("Heal");
         health = Math.Min(maxHealth, health + GameData.FAITH_HEAL);
         onPlayerHeal?.Invoke();
     }

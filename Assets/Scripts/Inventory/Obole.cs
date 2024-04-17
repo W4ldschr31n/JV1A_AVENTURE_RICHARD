@@ -23,6 +23,7 @@ public class Obole : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            collision.gameObject.GetComponent<Inventory>().CollectObole();
             onOboleCollected?.Invoke();
             Destroy(gameObject);
         }
