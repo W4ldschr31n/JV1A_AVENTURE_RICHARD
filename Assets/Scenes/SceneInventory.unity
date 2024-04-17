@@ -1062,7 +1062,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: AUTRES OBJETS
+  m_Text: CLEFS
 --- !u!222 &1299115153
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1659,6 +1659,7 @@ GameObject:
   - component: {fileID: 1885410174}
   - component: {fileID: 1885410176}
   - component: {fileID: 1885410175}
+  - component: {fileID: 1885410177}
   m_Layer: 5
   m_Name: PanelSeals
   m_TagString: Untagged
@@ -1726,6 +1727,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885410173}
   m_CullTransparentMesh: 1
+--- !u!114 &1885410177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885410173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 723c7229f1bb5a940b3e57350e0007a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seal1Image: {fileID: 672665928}
+  seal2Image: {fileID: 1310154183}
+  seal1Sprite: {fileID: 21300000, guid: 2714e9c230cf19248bd2949d120dda31, type: 3}
+  seal2Sprite: {fileID: 21300000, guid: 897febc6af2c9214eb7b790183762e71, type: 3}
+  emptySealSprite: {fileID: 21300000, guid: d0b3de8fadb8bd64097fbe4e950e3bfb, type: 3}
 --- !u!1 &1908764910
 GameObject:
   m_ObjectHideFlags: 0
