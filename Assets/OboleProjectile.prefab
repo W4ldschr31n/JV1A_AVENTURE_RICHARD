@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8885767975178144820}
   - component: {fileID: 64284351645687715}
   - component: {fileID: 571211644244888979}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OboleProjectile
   m_TagString: OboleProjectile
   m_Icon: {fileID: 0}
@@ -115,12 +115,12 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1096
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -140,7 +140,7 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1096
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -153,10 +153,10 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_ContactCaptureLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1096
   m_CallbackLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1096
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0

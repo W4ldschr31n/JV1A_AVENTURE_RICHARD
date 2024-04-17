@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1790836844753027791}
   - component: {fileID: 4217707438797730856}
   - component: {fileID: 3828578233382793389}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915e9736821e6e54b808e4dbcb894df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMove: 1
   moveSpeed: 3
   direction: {x: 0, y: 0, z: 0}
   lastX: 0
@@ -210,7 +211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1888239017265249887}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}

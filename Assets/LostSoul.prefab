@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3243941665593990621}
   - component: {fileID: 4254763228638447690}
   - component: {fileID: 2314943077875675320}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LostSoul
   m_TagString: LostSoul
   m_Icon: {fileID: 0}

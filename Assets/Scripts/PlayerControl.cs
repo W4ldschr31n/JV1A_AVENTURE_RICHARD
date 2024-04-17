@@ -138,6 +138,7 @@ public class PlayerControl : MonoBehaviour
         if (inventory.SpendObole())
         {
             GameObject projectile = Instantiate(projectilePrefab, attackSpot.position, Quaternion.identity);
+            projectile.GetComponent<Rigidbody2D>().angularVelocity = -360f;
             projectile.GetComponent<OboleProjectile>().direction = attackDirection;
             animator.SetTrigger("AttackObole");
         }

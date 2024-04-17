@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2568248515463848738}
   - component: {fileID: 4245315991728072307}
   - component: {fileID: 6888830460321898156}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Faith
   m_TagString: Untagged
   m_Icon: {fileID: 0}

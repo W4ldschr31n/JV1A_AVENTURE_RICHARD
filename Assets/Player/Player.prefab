@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6559366693582808897}
   - component: {fileID: 467217501227931349}
   - component: {fileID: 7127139338846327791}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Charge
   m_TagString: Charge
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6697917630569360969}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttackSpot
   m_TagString: Judgement
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 1325963382778415073}
   - component: {fileID: 8111798137965937192}
   - component: {fileID: 8428675766565584405}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -371,6 +371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b235eee242fc5643899c6f11f8f80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasFirstSeal: 0
+  hasSecondSeal: 0
 --- !u!95 &1325963382778415073
 Animator:
   serializedVersion: 5
@@ -516,7 +518,7 @@ GameObject:
   - component: {fileID: 4334011744179578542}
   - component: {fileID: 9103503847140694477}
   - component: {fileID: 6951969254086978935}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Judgement
   m_TagString: Judgement
   m_Icon: {fileID: 0}
@@ -635,7 +637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 724314996455420161}
   - component: {fileID: 1725071746563252070}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stun
   m_TagString: Untagged
   m_Icon: {fileID: 0}

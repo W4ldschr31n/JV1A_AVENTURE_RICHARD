@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4551744773343696233}
   - component: {fileID: 5671197712405717681}
   - component: {fileID: 1743347308380139564}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Obole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
