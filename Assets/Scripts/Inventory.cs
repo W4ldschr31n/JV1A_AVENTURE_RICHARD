@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class Inventory : MonoBehaviour
 {
     private int nbOboles;
     public static event Action onOboleSpent;
-    private SortedSet<Item> items;
+    public static event Action onItemAdded;
+    private List<Item> items;
     // Start is called before the first frame update
     void Start()
     {
-        items = new SortedSet<Item>();
+        items = new List<Item>();
     }
 
     private void OnEnable()
@@ -53,11 +55,17 @@ public class Inventory : MonoBehaviour
     public void AddItem(Item item)
     {
         items.Add(item);
+        onItemAdded?.Invoke();
     }
 
-    public SortedSet<Item> GetItems()
+    public Item[] GetItems()
     {
-        return items;
+        // If not yet initialized
+        if(items == null)
+        {
+            return new Item[0];
+        }
+        return items.ToArray<Item>(); // Requires System.Linq
     }
 
     public bool CheckHasItem(Item item)
