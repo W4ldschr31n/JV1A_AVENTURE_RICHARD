@@ -8,7 +8,6 @@ public class GateOpenerItem : MonoBehaviour
     private bool isActif = true;
     private Inventory inventory;
     public Item item;
-    public string message;
 
     private void Start()
     {
@@ -27,7 +26,7 @@ public class GateOpenerItem : MonoBehaviour
                 isActif = false;
             }else
             {
-                gate.DisplayMessage(message);
+                gate.DisplayMessage($"Il vous faut l'objet {item.itemName}.");
             }
         }
     }

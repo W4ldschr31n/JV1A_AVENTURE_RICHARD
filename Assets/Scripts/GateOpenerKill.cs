@@ -26,7 +26,7 @@ public class GateOpenerKill : MonoBehaviour
     {
         if (isActif && collision.gameObject.CompareTag("Judgement"))
         {
-            Debug.Log(GameObject.FindGameObjectsWithTag("Enemy").Length + " ennemis restant");
+            gate.DisplayMessage($"{GameObject.FindGameObjectsWithTag("Enemy").Length} ennemis empêchent la porte de s'ouvrir.");
         }
     }
 
