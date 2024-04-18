@@ -67,8 +67,12 @@ public class GameData : MonoBehaviour
         if (mode == LoadSceneMode.Single)
         {
             levelData = FindObjectOfType<LevelData>();
-            spawnPoint = levelData.GetSpawnPoint(spawnDirection);
-            MovePlayerToSpawn();
+            // Init scene has no LevelData
+            if(levelData != null)
+            {
+                spawnPoint = levelData.GetSpawnPoint(spawnDirection);
+                MovePlayerToSpawn();
+            }
         }
     }
 

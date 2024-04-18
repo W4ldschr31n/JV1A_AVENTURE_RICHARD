@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 2147461609530613816}
   - component: {fileID: 5822227749176941663}
   - component: {fileID: 7355467585529720481}
+  - component: {fileID: 8932089326074889391}
   m_Layer: 0
-  m_Name: GameData
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obolePrefab: {fileID: 5709329042289183038, guid: adfa185393b8502418379036b93df605, type: 3}
   faithPrefab: {fileID: 338866202435656704, guid: ff26c9bcb2c14b04e87636b04b3c1564, type: 3}
-  sceneToPlay: {fileID: 102900000, guid: 2cda990e2423bbf4892e6590ba056729, type: 3}
+  sceneToPlay: {fileID: 102900000, guid: b03bf40e72301f74ea71d17c97830ed3, type: 3}
   sceneInventory: {fileID: 102900000, guid: f5d72be892d77394cabe3500d2db1053, type: 3}
   isInventoryOpen: 0
 --- !u!114 &7355467585529720481
@@ -62,3 +63,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c54b6b7a881ebde4ca2e236f3e692a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8932089326074889391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6830071265357577593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ebe4a18eed33d41a177ba894a6e2a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  dialogueText: {fileID: 0}
