@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570c2602dcfd02b4aa3cea94fe199879, type: 3}
   m_Name: PinkKey
   m_EditorClassIdentifier: 
-  itemName: Pink Key
+  itemName: "Cl\xE9 rose"
   sprite: {fileID: 21300000, guid: 428efd434dd299e488f0415f6ba0b311, type: 3}

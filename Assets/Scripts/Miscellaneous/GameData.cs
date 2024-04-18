@@ -121,9 +121,24 @@ public class GameData : MonoBehaviour
         } else
         {
             isInventoryOpen = false;
-            // 'Resume the game'
+            // 'Resume' the game
             Time.timeScale = 1f;
             SceneManager.UnloadSceneAsync(sceneInventory.name);
         }
+    }
+
+    public void UnlockJudgement()
+    {
+        player.canJudgement = true;
+    }
+
+    public void UnlockObole()
+    {
+        player.canObole = true;
+    }
+
+    public void UnlockCharge()
+    {
+        player.canCharge = true;
     }
 }

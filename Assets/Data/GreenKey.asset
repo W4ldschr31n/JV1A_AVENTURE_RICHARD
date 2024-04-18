@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570c2602dcfd02b4aa3cea94fe199879, type: 3}
   m_Name: GreenKey
   m_EditorClassIdentifier: 
-  itemName: Green Key
+  itemName: "Cl\xE9 verte"
   sprite: {fileID: 21300000, guid: 6397701d78a73db42a95ec9cd03a923b, type: 3}

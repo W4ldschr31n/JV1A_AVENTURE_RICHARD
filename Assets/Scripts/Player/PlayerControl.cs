@@ -36,10 +36,13 @@ public class PlayerControl : MonoBehaviour
     public int health;
 
     // Attacks
-    public bool canBeDamaged = true;
-    public bool canAttack = true;
+    public bool canJudgement;
+    public bool canObole;
+    public bool canCharge;
+    public bool canBeDamaged;
+    public bool canAttack;
     private Vector3 attackDirection;
-    private bool isCharging = false;
+    private bool isCharging;
     [SerializeField]
     private float chargeSpeed;
     [SerializeField]
@@ -78,15 +81,15 @@ public class PlayerControl : MonoBehaviour
         // Attack
         if (canAttack)
         { 
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && canJudgement)
             {
                 AttackJudgement();
             }
-            else if (Input.GetButtonDown("Fire2"))
+            else if (Input.GetButtonDown("Fire2") && canObole)
             {
                 AttackObole();
             }
-            else if (Input.GetKeyDown(KeyCode.E))
+            else if (Input.GetKeyDown(KeyCode.E) && canCharge)
             {
                 AttackCharge();
             }
