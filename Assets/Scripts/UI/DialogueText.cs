@@ -20,12 +20,15 @@ public class DialogueText : MonoBehaviour
         
     }
 
-    public void DisplayMessage(string message, float displayTime = 2f)
+    public void DisplayMessage(string message, float displayTime = 0f)
     {
         text.text = message;
         text.enabled = true;
         image.enabled = true;
-        Invoke("HideMessage", displayTime);
+        if(displayTime > 0f)
+        {
+            Invoke("HideMessage", displayTime);
+        }
     }
 
     public void HideMessage()
