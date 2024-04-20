@@ -33,7 +33,7 @@ public class DialogueManager : MonoBehaviour
     public void DisplayNextQuote()
     {
         if (isCoroutinePlaying)
-        {
+        { // If a quote is being written, display the remaining text
             StopAllCoroutines();
             dialogueText.text = quoteToDisplay;
             isCoroutinePlaying=false;
@@ -54,7 +54,7 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueText.text = "";
         foreach(string part in WrapRichText(quote))
-        { // Write one letter per frame (skip blanks)
+        { // Write letters one by one (skip blanks)
             dialogueText.text += part;
             if(part != " ")
             {
@@ -112,7 +112,7 @@ public class DialogueManager : MonoBehaviour
                 tmpRichTagEnd = currentPart;
                 foreach (char richLetter in tmpRichText.ToCharArray())
                 {
-                    result.Add(tmpRichTagStart + richLetter + currentPart);
+                    result.Add(tmpRichTagStart + richLetter + tmpRichTagEnd);
                 }
                 tmpRichText = "";
                 isRichTag = false;
