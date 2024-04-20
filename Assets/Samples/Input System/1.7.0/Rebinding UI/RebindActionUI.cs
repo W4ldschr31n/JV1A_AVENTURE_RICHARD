@@ -425,7 +425,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
         private void UpdateActionLabel()
         {
-            if (m_ActionLabel != null)
+            if (m_ActionLabel != null && m_ActionLabel.text == String.Empty)
             {
                 var action = m_Action?.action;
                 m_ActionLabel.text = action != null ? action.name : string.Empty;

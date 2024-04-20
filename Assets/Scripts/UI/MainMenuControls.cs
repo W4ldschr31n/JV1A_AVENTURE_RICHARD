@@ -10,6 +10,7 @@ public class MainMenuControls : MonoBehaviour
     [SerializeField]
     private GameObject mainMenuFirst, optionsMenuFirst, keyboardControlsFirst, controllerControlsFirst;
 
+
     public void PlayButton()
     {
         SceneManager.LoadScene("SceneInit");
