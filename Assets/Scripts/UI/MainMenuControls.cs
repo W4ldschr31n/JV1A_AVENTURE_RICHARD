@@ -5,11 +5,20 @@ using UnityEngine.EventSystems;
 public class MainMenuControls : MonoBehaviour
 {
     [SerializeField]
+    GameObject titleScreen;
+
+    [SerializeField]
     private GameObject mainMenu, optionsMenu, keyboardControls, controllerControls;
 
     [SerializeField]
     private GameObject mainMenuFirst, optionsMenuFirst, keyboardControlsFirst, controllerControlsFirst;
 
+    public void HideTitleScreen()
+    {
+        titleScreen.SetActive(false);
+        // Show the menu after a few frames to avoid hitting the play button instantly
+        Invoke("OptionsBackButton", 0.5f);
+    }
 
     public void PlayButton()
     {

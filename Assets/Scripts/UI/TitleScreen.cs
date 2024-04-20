@@ -5,13 +5,12 @@ using UnityEngine;
 public class TitleScreen : MonoBehaviour
 {
     [SerializeField]
-    GameObject titlePanel, mainMenu;
+    MainMenuControls menuControls;
     void Update()
     {
         if (Input.anyKey)
         {
-            mainMenu.SetActive(true);
-            titlePanel.SetActive(false);
+            menuControls.HideTitleScreen();
         }
     }
 }
