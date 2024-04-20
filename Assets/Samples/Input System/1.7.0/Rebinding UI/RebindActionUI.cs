@@ -80,6 +80,20 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         }
 
         /// <summary>
+        /// Text component that receives the error string of the binding. Can be <c>null</c> in which
+        /// case the component entirely relies on <see cref="updateBindingUIEvent"/>.
+        /// </summary>
+        public Text errorText
+        {
+            get => m_ErrorText;
+            set
+            {
+                m_ErrorText = value;
+                UpdateBindingDisplay();
+            }
+        }
+
+        /// <summary>
         /// Optional text component that receives a text prompt when waiting for a control to be actuated.
         /// </summary>
         /// <seealso cref="startRebindEvent"/>
@@ -216,6 +230,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         {
             if (!ResolveActionAndBinding(out var action, out var bindingIndex))
                 return;
+            ResetBinding(action, bindingIndex);
 
             if (action.bindings[bindingIndex].isComposite)
             {
@@ -227,7 +242,47 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             {
                 action.RemoveBindingOverride(bindingIndex);
             }
+
             UpdateBindingDisplay();
+        }
+
+        private void ResetBinding(InputAction action, int bindingIndex)
+        {
+            InputBinding newBinding = action.bindings[bindingIndex];
+            string oldOverridePath = newBinding.overridePath;
+
+            action.RemoveBindingOverride(bindingIndex);
+            int currentIndex = -1;
+
+            foreach (InputAction otherAction in action.actionMap.actions)
+            {
+                currentIndex++;
+                InputBinding currentBinding = action.actionMap.bindings[currentIndex];
+
+                if (otherAction == action)
+                {
+                    if (newBinding.isPartOfComposite)
+                    {
+                        if (currentBinding.overridePath == newBinding.path)
+                        {
+                            otherAction.ApplyBindingOverride(currentIndex, oldOverridePath);
+                        }
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+
+                for (int i = 0; i < otherAction.bindings.Count; i++)
+                {
+                    InputBinding binding = otherAction.bindings[i];
+                    if (binding.overridePath == newBinding.path)
+                    {
+                        otherAction.ApplyBindingOverride(i, oldOverridePath);
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -238,7 +293,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         {
             if (!ResolveActionAndBinding(out var action, out var bindingIndex))
                 return;
-
+            m_ErrorText.text = String.Empty;
             // If the binding is a composite, we need to rebind each part in turn.
             if (action.bindings[bindingIndex].isComposite)
             {
@@ -278,6 +333,16 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                     {
                         m_RebindOverlay?.SetActive(false);
                         m_RebindStopEvent?.Invoke(this, operation);
+
+                        if (CheckDuplicateBindings(action, bindingIndex, allCompositeParts))
+                        {
+                            action.RemoveBindingOverride(bindingIndex);
+
+                            CleanUp();
+                            PerformInteractiveRebind(action, bindingIndex, allCompositeParts);
+                            return;
+                        }
+                        m_ErrorText.text = String.Empty;
                         UpdateBindingDisplay();
                         CleanUp();
 
@@ -315,6 +380,51 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             m_RebindStartEvent?.Invoke(this, m_RebindOperation);
 
             m_RebindOperation.Start();
+        }
+
+        private bool CheckDuplicateBindings(InputAction action, int bindingIndex, bool allCompositeParts = false)
+        {
+            InputBinding newBinding = action.bindings[bindingIndex];
+            int compositeIndex = -1;
+
+            foreach (InputBinding binding in action.actionMap.bindings)
+            {
+                if (binding.action == newBinding.action)
+                {
+                    compositeIndex++;
+                    if (binding.isPartOfComposite)
+                    {
+                        if (compositeIndex != bindingIndex && binding.effectivePath == newBinding.effectivePath)
+                        {
+                            DisplayRebindError(newBinding.effectivePath);
+                            return true;
+                        }
+                    }
+                    continue;
+                }
+                if (binding.effectivePath == newBinding.effectivePath)
+                {
+                    DisplayRebindError(newBinding.effectivePath);
+                    return true;
+                }
+            }
+            if (allCompositeParts)
+            {
+                for (int i = 1; i < bindingIndex; i++)
+                {
+                    if (action.bindings[i].effectivePath == newBinding.overridePath)
+                    {
+                        DisplayRebindError(newBinding.effectivePath);
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        private void DisplayRebindError(string path)
+        {
+            m_ErrorText.text = "Le bouton '"+path+"' est déjà attribué à une autre action";
         }
 
         protected void OnEnable()
@@ -384,6 +494,11 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         [Tooltip("Text label that will receive the current, formatted binding string.")]
         [SerializeField]
         private Text m_BindingText;
+
+
+        [Tooltip("Text label that will receive the current, formatted error string.")]
+        [SerializeField]
+        private Text m_ErrorText;
 
         [Tooltip("Optional UI that will be shown while a rebind is in progress.")]
         [SerializeField]
