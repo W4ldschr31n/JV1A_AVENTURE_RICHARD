@@ -414,6 +414,11 @@
                     "devicePath": "<Gamepad>/{Hatswitch}",
                     "isOptional": true,
                     "isOR": false
+                },
+                {
+                    "devicePath": "<XInputController>",
+                    "isOptional": true,
+                    "isOR": false
                 }
             ]
         }
