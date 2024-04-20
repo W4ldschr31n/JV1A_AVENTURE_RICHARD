@@ -24,6 +24,7 @@ public class PlayerControl : MonoBehaviour
     // External components
     public GameObject projectilePrefab;
     private GameData gameData;
+    private InputManager inputManager;
     
     // Events
     public static event Action onPlayerTakeHit;
@@ -61,6 +62,7 @@ public class PlayerControl : MonoBehaviour
         inventory = GetComponent<Inventory>();
         audioSource = GetComponent<AudioSource>();
         gameData = FindObjectOfType<GameData>();
+        inputManager = FindObjectOfType<InputManager>();
         health = maxHealth;
         originalDrag = rgbd.drag;
     }
@@ -68,7 +70,7 @@ public class PlayerControl : MonoBehaviour
     private void Update()
     {
         // Inventory
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (inputManager.ToggleInventoryInput)
         {
             gameData.ToggleInventory();
         }
@@ -81,20 +83,19 @@ public class PlayerControl : MonoBehaviour
         // Attack
         if (canAttack)
         { 
-            if (Input.GetButtonDown("Fire1") && canJudgement)
+            if (inputManager.AttackJudgementInput && canJudgement)
             {
                 AttackJudgement();
             }
-            else if (Input.GetButtonDown("Fire2") && canObole)
+            else if (inputManager.AttackOboleInput && canObole)
             {
                 AttackObole();
             }
-            else if (Input.GetKeyDown(KeyCode.E) && canCharge)
+            else if (inputManager.AttackChargeInput && canCharge)
             {
                 AttackCharge();
             }
         }
-        // Cancel Charge ?
         
         // Reset
         if (Input.GetKeyDown(KeyCode.R))
@@ -103,9 +104,7 @@ public class PlayerControl : MonoBehaviour
         }
 
         // Movement - the actual moving happens in DirectionalMovement.FixedUpdate() for consistency reasons
-        float dirX = Input.GetAxisRaw("Horizontal");
-        float dirY = Input.GetAxisRaw("Vertical");
-        directionalMovement.direction = new Vector3(dirX, dirY).normalized;
+        directionalMovement.direction = (Vector3)(inputManager.MoveInput).normalized;
 
         // Move attack spot accordingly
         attackDirection = new Vector3(directionalMovement.lastX, directionalMovement.lastY, 0f);
