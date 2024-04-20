@@ -18,9 +18,9 @@ public class MainMenuControls : MonoBehaviour
 
     public void OptionsButton()
     {
+        CloseAllMenus();
         optionsMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(optionsMenuFirst);
-        mainMenu.SetActive(false);
     }
 
     public void QuitButton()
@@ -33,31 +33,36 @@ public class MainMenuControls : MonoBehaviour
 
     public void KeyboardControlsButton()
     {
-        optionsMenu.SetActive(false);
+        CloseAllMenus();
         keyboardControls.SetActive(true);
         EventSystem.current.SetSelectedGameObject(keyboardControlsFirst);
     }
 
     public void ControllerControlsButton()
     {
-        optionsMenu.SetActive(false);
+        CloseAllMenus();
         controllerControls.SetActive(true);
         EventSystem.current.SetSelectedGameObject(controllerControlsFirst);
     }
 
     public void OptionsBackButton()
     {
+        CloseAllMenus();
         mainMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(mainMenuFirst);
-
-        optionsMenu.SetActive(false);
     }
 
     public void RebindBackButton()
     {
+        CloseAllMenus();
         optionsMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(optionsMenuFirst);
+    }
 
+    private void CloseAllMenus()
+    {
+        mainMenu.SetActive(false);
+        optionsMenu.SetActive(false);
         keyboardControls.SetActive(false);
         controllerControls.SetActive(false);
     }
