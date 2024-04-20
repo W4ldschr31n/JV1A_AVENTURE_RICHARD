@@ -230,17 +230,16 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         {
             if (!ResolveActionAndBinding(out var action, out var bindingIndex))
                 return;
-            ResetBinding(action, bindingIndex);
 
             if (action.bindings[bindingIndex].isComposite)
             {
                 // It's a composite. Remove overrides from part bindings.
                 for (var i = bindingIndex + 1; i < action.bindings.Count && action.bindings[i].isPartOfComposite; ++i)
-                    action.RemoveBindingOverride(i);
+                    ResetBinding(action, i);
             }
             else
             {
-                action.RemoveBindingOverride(bindingIndex);
+                ResetBinding(action,bindingIndex);
             }
 
             UpdateBindingDisplay();
@@ -252,28 +251,10 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             string oldOverridePath = newBinding.overridePath;
 
             action.RemoveBindingOverride(bindingIndex);
-            int currentIndex = -1;
 
+            // If we find a duplicate by resetting, switch binds
             foreach (InputAction otherAction in action.actionMap.actions)
             {
-                currentIndex++;
-                InputBinding currentBinding = action.actionMap.bindings[currentIndex];
-
-                if (otherAction == action)
-                {
-                    if (newBinding.isPartOfComposite)
-                    {
-                        if (currentBinding.overridePath == newBinding.path)
-                        {
-                            otherAction.ApplyBindingOverride(currentIndex, oldOverridePath);
-                        }
-                    }
-                    else
-                    {
-                        continue;
-                    }
-                }
-
                 for (int i = 0; i < otherAction.bindings.Count; i++)
                 {
                     InputBinding binding = otherAction.bindings[i];
@@ -316,7 +297,8 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 m_RebindOperation?.Dispose();
                 m_RebindOperation = null;
             }
-
+            InputBinding newBinding = action.bindings[bindingIndex];
+            string oldPath = newBinding.effectivePath;
             // Configure the rebind.
             m_RebindOperation = action.PerformInteractiveRebinding(bindingIndex)
                 .WithControlsExcluding("Mouse")
@@ -335,7 +317,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                         m_RebindOverlay?.SetActive(false);
                         m_RebindStopEvent?.Invoke(this, operation);
 
-                        if (CheckDuplicateBindings(action, bindingIndex, allCompositeParts))
+                        if (CheckDuplicateBindings(action, bindingIndex, oldPath, allCompositeParts))
                         {
                             action.RemoveBindingOverride(bindingIndex);
 
@@ -360,16 +342,14 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             // If it's a part binding, show the name of the part in the UI.
             var partName = default(string);
             if (action.bindings[bindingIndex].isPartOfComposite)
-                partName = $"Binding '{action.bindings[bindingIndex].name}'. ";
+                partName = $"Action '{action.bindings[bindingIndex].name}'. ";
 
             // Bring up rebind overlay, if we have one.
             m_RebindOverlay?.SetActive(true);
             if (m_RebindText != null)
             {
-                var text = !string.IsNullOrEmpty(m_RebindOperation.expectedControlType)
-                    ? $"{partName}Waiting for {m_RebindOperation.expectedControlType} input..."
-                    : $"{partName}Waiting for input...";
-                m_RebindText.text = text;
+                var text = action.bindings[bindingIndex].groups == "Keyboard" ? "Appuyez sur une touche du clavier.": "Appuyez sur un bouton de la manette.";
+                m_RebindText.text = partName + text;
             }
 
             // If we have no rebind overlay and no callback but we have a binding text label,
@@ -383,32 +363,48 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             m_RebindOperation.Start();
         }
 
-        private bool CheckDuplicateBindings(InputAction action, int bindingIndex, bool allCompositeParts = false)
+        private bool CheckDuplicateBindings(InputAction action, int bindingIndex, string oldPath, bool allCompositeParts = false)
         {
+            // Do not permit to duplicate between two composites, else just switch the binds
             InputBinding newBinding = action.bindings[bindingIndex];
             int compositeIndex = -1;
 
-            foreach (InputBinding binding in action.actionMap.bindings)
+            foreach(InputAction otherAction in action.actionMap.actions)
             {
-                if (binding.action == newBinding.action)
+
+                if (otherAction == action)
                 {
-                    compositeIndex++;
-                    if (binding.isPartOfComposite)
+                    if (newBinding.isPartOfComposite)
                     {
-                        if (compositeIndex != bindingIndex && binding.effectivePath == newBinding.effectivePath)
+                        foreach(InputBinding compositeBinding in otherAction.bindings)
                         {
-                            DisplayRebindError(newBinding.effectivePath);
-                            return true;
+                            compositeIndex++;
+                            if (newBinding.overridePath == compositeBinding.effectivePath && compositeIndex!=bindingIndex)
+                            {
+                                DisplayRebindError(newBinding.effectivePath);
+                                return true;
+                            }
                         }
                     }
-                    continue;
+                    else
+                    {
+                        continue;
+                    }
                 }
-                if (binding.effectivePath == newBinding.effectivePath)
+                else
                 {
-                    DisplayRebindError(newBinding.effectivePath);
-                    return true;
+
+                    for (int i = 0; i < otherAction.bindings.Count; i++)
+                    {
+                        InputBinding binding = otherAction.bindings[i];
+                        if (binding.effectivePath == newBinding.overridePath)
+                        {
+                            otherAction.ApplyBindingOverride(i, oldPath);
+                        }
+                    }
                 }
             }
+
             if (allCompositeParts)
             {
                 for (int i = 1; i < bindingIndex; i++)
