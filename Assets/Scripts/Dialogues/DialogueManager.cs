@@ -30,6 +30,17 @@ public class DialogueManager : MonoBehaviour
         DisplayNextQuote();
     }
 
+    public void DisplaySimpleMessage(string message)
+    {
+        // In case we want to display one dynamic message
+        quotes = new Queue<string>();
+        quotes.Enqueue(message);
+
+        animator.SetBool("IsOpen", true);
+        nameText.text = string.Empty;
+        DisplayNextQuote();
+    }
+
     public void DisplayNextQuote()
     {
         if (isCoroutinePlaying)

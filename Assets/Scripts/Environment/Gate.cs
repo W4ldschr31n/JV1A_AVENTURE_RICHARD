@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Gate : MonoBehaviour
 {
-    private DialogueText dialogueText;
+    private DialogueManager dialogueManager;
+    private Animator animator;
+    [SerializeField]
+    private GameObject closedHitbox, openHitbox;
+    public AnimationClip openAnimation;
     // Start is called before the first frame update
     void Start()
     {
-        dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<DialogueText>();
+        dialogueManager = FindObjectOfType<DialogueManager>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -19,12 +24,20 @@ public class Gate : MonoBehaviour
 
     public void DisplayMessage(string message)
     {
-        dialogueText.DisplayMessage(message, 1.5f);
+        dialogueManager.DisplaySimpleMessage(message);
+    }
+
+    public void HideMessage()
+    {
+        dialogueManager.EndDialogue();
     }
 
     public void OpenGate()
     {
-        Destroy(this.gameObject);
+        animator.Play(openAnimation.name);
+        closedHitbox.SetActive(false);
+        openHitbox.SetActive(true);
+        dialogueManager.EndDialogue();
     }
 
 }

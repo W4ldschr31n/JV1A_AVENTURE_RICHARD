@@ -34,6 +34,7 @@ public class DialogueNpc : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerInRange = false;
+            dialogueManager.EndDialogue();
         }
     }
 
