@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 399456065509565159, guid: d42138274a5d1cf4c9722c9c7469f586, type: 3}
+      propertyPath: openAnimation
+      value: 
+      objectReference: {fileID: 7400000, guid: 7716099cd2bcc604f991ac7f4d7145b7, type: 2}
     - target: {fileID: 3198461343070751019, guid: d42138274a5d1cf4c9722c9c7469f586, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -52,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GateClearEnemies
       objectReference: {fileID: 0}
+    - target: {fileID: 6699520875816874138, guid: d42138274a5d1cf4c9722c9c7469f586, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1992459465, guid: 0c5700e555d05774dbee25097a4f26ce, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

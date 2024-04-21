@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: message
       value: Il faut un item
       objectReference: {fileID: 0}
+    - target: {fileID: 399456065509565159, guid: d42138274a5d1cf4c9722c9c7469f586, type: 3}
+      propertyPath: openAnimation
+      value: 
+      objectReference: {fileID: 7400000, guid: 0ed24b4539f92214292988a5b2328824, type: 2}
     - target: {fileID: 3198461343070751019, guid: d42138274a5d1cf4c9722c9c7469f586, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -56,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GateItem
       objectReference: {fileID: 0}
+    - target: {fileID: 6699520875816874138, guid: d42138274a5d1cf4c9722c9c7469f586, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2059432380, guid: ea9c16af17a871e449975dfc0d53120c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
