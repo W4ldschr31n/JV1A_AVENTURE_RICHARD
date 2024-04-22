@@ -17,13 +17,13 @@ public class OboleCounter : MonoBehaviour
 
     private void OnEnable()
     {
-        Obole.onOboleCollected += UpdateCounter;
+        Inventory.onOboleCollected += UpdateCounter;
         Inventory.onOboleSpent += UpdateCounter;
     }
 
     private void OnDisable()
     {
-        Obole.onOboleCollected -= UpdateCounter;
+        Inventory.onOboleCollected -= UpdateCounter;
         Inventory.onOboleSpent -= UpdateCounter;
     }
 

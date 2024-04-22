@@ -6,7 +6,6 @@ using System;
 public class Obole : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static event Action onOboleCollected;
     void Start()
     {
 
@@ -24,7 +23,6 @@ public class Obole : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<Inventory>().CollectObole();
-            onOboleCollected?.Invoke();
             Destroy(gameObject);
         }
     }

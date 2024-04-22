@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour
     private int nbOboles;
     public bool hasFirstSeal;
     public bool hasSecondSeal;
+    public static event Action onOboleCollected;
     public static event Action onOboleSpent;
     public static event Action onItemAdded;
     private List<Item> items;
@@ -27,6 +28,7 @@ public class Inventory : MonoBehaviour
     public void CollectObole()
     {
         nbOboles++;
+        onOboleCollected?.Invoke();
     }
 
     public int GetNbOboles()

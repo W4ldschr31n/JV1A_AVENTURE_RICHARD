@@ -11,16 +11,26 @@ public class EnemyMoveCircle : MonoBehaviour
     [SerializeField]
     private Transform center;
     private Vector3 centerPosition;
+    private float radius;
 
     void Start()
     {
         directionalMovement = GetComponent<DirectionalMovement>();
         centerPosition = center.position;
+        radius = Vector3.Distance(centerPosition, transform.position);
     }
 
     private void Update()
     {
-        directionalMovement.direction = Vector2.Perpendicular(centerPosition - transform.position).normalized;
+        // Check if we have deviated from original circle
+        if(Mathf.Abs(Vector3.Distance(centerPosition, transform.position) - radius) > 0.2f)
+        {
+            directionalMovement.direction = centerPosition - transform.position;
+        }
+        else
+        {
+            directionalMovement.direction = Vector2.Perpendicular(centerPosition - transform.position).normalized;
+        }
     }
 
 }
