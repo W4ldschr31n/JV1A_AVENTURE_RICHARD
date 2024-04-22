@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DialogueNpc : MonoBehaviour
 {
     public Dialogue dialogue;
-    public bool isPlayerInRange;
+    private bool isPlayerInRange, isTalking;
     private DialogueManager dialogueManager;
+
+    [SerializeField]
+    UnityEvent onDialogueEnd;
 
     private void Start()
     {
@@ -40,6 +44,19 @@ public class DialogueNpc : MonoBehaviour
 
     private void TriggerDialogue()
     {
-        dialogueManager.StartDialogue(dialogue);
+        if (!isTalking)
+        {
+            dialogueManager.StartDialogue(dialogue, onDialogueEnd);
+            isTalking = true;
+        }
+        else
+        {
+            dialogueManager.DisplayNextQuote();
+        }
+    }
+
+    public void StopTalking()
+    {
+        isTalking = false;
     }
 }

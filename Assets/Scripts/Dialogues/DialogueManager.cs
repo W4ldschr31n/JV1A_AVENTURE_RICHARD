@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class DialogueManager : MonoBehaviour
     private bool isCoroutinePlaying;
     [SerializeField]
     private Animator animator;
+    private UnityEvent dialogueCallback;
 
     private void Start()
     {
@@ -20,21 +22,24 @@ public class DialogueManager : MonoBehaviour
         isCoroutinePlaying = false;
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue, UnityEvent callback = null)
     {
         // Build the queue from the dialogue array
         quotes = new Queue<string>(dialogue.quotes);
+        // Record the callback
+        dialogueCallback = callback;
 
         animator.SetBool("IsOpen", true);
         nameText.text = dialogue.npcName;
         DisplayNextQuote();
     }
 
-    public void DisplaySimpleMessage(string message)
+    public void DisplaySimpleMessage(string message, UnityEvent callback = null)
     {
         // In case we want to display one dynamic message
         quotes = new Queue<string>();
         quotes.Enqueue(message);
+        dialogueCallback = callback;
 
         animator.SetBool("IsOpen", true);
         nameText.text = string.Empty;
@@ -77,6 +82,7 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
+        dialogueCallback?.Invoke();
     }
 
     private List<string> WrapRichText(string quote)
