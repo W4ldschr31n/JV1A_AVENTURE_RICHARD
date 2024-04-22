@@ -139,6 +139,12 @@ public class GameData : MonoBehaviour
     public void UnlockObole()
     {
         player.canObole = true;
+        Inventory inventory = player.GetComponent<Inventory>();
+        // Magic number for starting ammo
+        for(int i=0; i < 5;  i++)
+        {
+            inventory.CollectObole();
+        }
     }
 
     public void UnlockCharge()
