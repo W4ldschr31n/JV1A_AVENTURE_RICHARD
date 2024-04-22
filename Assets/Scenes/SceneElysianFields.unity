@@ -723,35 +723,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8140901906047103144, guid: ba4b325d88fffe34b8912d3e8f0527bb, type: 3}
       propertyPath: m_Name
-      value: EnemyTracker (1)
+      value: EnemyTrackerWithPinkKey
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8140901906047103144, guid: ba4b325d88fffe34b8912d3e8f0527bb, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 3314018827520785355, guid: ba4b325d88fffe34b8912d3e8f0527bb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 465014841}
+      addedObject: {fileID: 868389556}
   m_SourcePrefab: {fileID: 100100000, guid: ba4b325d88fffe34b8912d3e8f0527bb, type: 3}
---- !u!1 &465014840 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8140901906047103144, guid: ba4b325d88fffe34b8912d3e8f0527bb, type: 3}
-  m_PrefabInstance: {fileID: 465014839}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &465014841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 465014840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3f0194a138b1c14d87c0877362176ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemToDrop: {fileID: 11400000, guid: 973b1cc6d32d23c45b35ff267b50b9d0, type: 2}
-  dropPrefab: {fileID: 3806944944121562835, guid: 78eede8eef4082d439dcb9a498e0b4dd, type: 3}
 --- !u!1 &588315620
 GameObject:
   m_ObjectHideFlags: 0
@@ -3834,6 +3815,25 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3133deb4273391544b9a699dcadc20a5, type: 3}
+--- !u!1 &868389547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3314018827520785355, guid: ba4b325d88fffe34b8912d3e8f0527bb, type: 3}
+  m_PrefabInstance: {fileID: 465014839}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &868389556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868389547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f0194a138b1c14d87c0877362176ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToDrop: {fileID: 11400000, guid: 973b1cc6d32d23c45b35ff267b50b9d0, type: 2}
+  dropPrefab: {fileID: 3806944944121562835, guid: 78eede8eef4082d439dcb9a498e0b4dd, type: 3}
 --- !u!1001 &885926922
 PrefabInstance:
   m_ObjectHideFlags: 0
