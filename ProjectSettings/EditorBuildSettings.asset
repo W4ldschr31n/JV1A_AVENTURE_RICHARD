@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneInventory.unity
     guid: f5d72be892d77394cabe3500d2db1053
+  - enabled: 1
+    path: Assets/Scenes/SceneElysianFields.unity
+    guid: 375afac9f2abf7441b87e7afc8e93fe6
   m_configObjects: {}
