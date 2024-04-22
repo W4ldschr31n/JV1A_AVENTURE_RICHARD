@@ -8,6 +8,7 @@ public class DialogueNpc : MonoBehaviour
     public Dialogue dialogue;
     private bool isPlayerInRange, isTalking;
     private DialogueManager dialogueManager;
+    private InputManager inputManager;
 
     [SerializeField]
     UnityEvent onDialogueEnd;
@@ -15,11 +16,12 @@ public class DialogueNpc : MonoBehaviour
     private void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
+        inputManager = FindObjectOfType<InputManager>();
     }
 
     void Update()
     {
-        if(isPlayerInRange && Input.GetKeyDown(KeyCode.E))
+        if(isPlayerInRange && inputManager.InteractInput)
         {
             TriggerDialogue();
         }
