@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64e5059789cd4e54ebff4be9788cc996, type: 3}
-  m_Name: DialogueM2
+  m_Name: DialogueM3
   m_EditorClassIdentifier: 
   npcName: "M\xE8re"
   quotes:
   - Mon <i>doux</i> agneau...
-  - "Nous sommes dans les <b>champs \xE9lys\xE9ens</b>, l\xE0 o\xF9 reposent les
-    \xE2mes pures."
-  - "Tu dois y r\xE9cup\xE9rer le <b>sceau de la justice</b>."
-  - "Tu trouvera peut-\xEAtre des <b>oboles</b>, sers-t'en pour affronter des menaces
-    \xE0 distance."
+  - "Nous sommes dans <b>Sheol</b>, l\xE0 o\xF9 se terrent les \xE2mes malfaisantes."
+  - Tu dois y trouver le <b>sceau de la fureur</b>.
+  - "Fais attention \xE0 toi, c'est le domaine du <b>Patriarche</b>, le p\xE8re de
+    tous tes ennemis."
   - Je crois en toi.
