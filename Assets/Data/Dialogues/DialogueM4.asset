@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e5059789cd4e54ebff4be9788cc996, type: 3}
+  m_Name: DialogueM4
+  m_EditorClassIdentifier: 
+  npcName: "M\xE8re"
+  quotes:
+  - Mon <i>doux</i> agneau...
+  - "Tu as r\xE9cup\xE9r\xE9 le <b>sceau de la justice</b>. Je suis fi\xE8re, et
+    soulag\xE9e de te revoir."
+  - "Il ne nous reste plus qu'un sceau \xE0 r\xE9cup\xE9rer. "
+  - "Retrouves-moi de l'autre c\xF4t\xE9 du <b>pont</b> que j'ai r\xE9par\xE9 en
+    ton absence."
+  - Je crois en toi.

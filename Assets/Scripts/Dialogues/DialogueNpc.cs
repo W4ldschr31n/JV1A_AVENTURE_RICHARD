@@ -41,6 +41,7 @@ public class DialogueNpc : MonoBehaviour
         {
             isPlayerInRange = false;
             dialogueManager.EndDialogue();
+            StopTalking();
         }
     }
 

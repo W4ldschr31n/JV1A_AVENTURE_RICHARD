@@ -4,32 +4,73 @@ using UnityEngine;
 
 public class PuzzleGatherSouls : MonoBehaviour
 {
+    private DialogueManager dialogueManager;
+    private bool isPlayerInRange, isComplete;
+    private InputManager inputManager;
 
-    public List<GameObject> objectsToDestroy;
-    // Start is called before the first frame update
     void Start()
     {
-        
+        dialogueManager = FindObjectOfType<DialogueManager>();
+        inputManager = FindObjectOfType<InputManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (isPlayerInRange && inputManager.InteractInput)
+        {
+            if(!isComplete)
+            {
+                TriggerDialogue();
+            }
+            else
+            {
+                DestroySelf();
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (
-            collision.gameObject.CompareTag("Judgement") 
-            && 
-            GameObject.FindGameObjectsWithTag("LostSoul").Length == 0
-        )
+        if (collision.gameObject.CompareTag("Player"))
         {
-            foreach (GameObject go in objectsToDestroy)
+            isPlayerInRange = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (!isComplete)
             {
-                Destroy(go);
+                isPlayerInRange = false;
+                dialogueManager.EndDialogue();
+            }
+            else
+            {
+                DestroySelf();
             }
         }
+    }
+
+    private void TriggerDialogue()
+    {
+        int nbSoulsRemaining = GameObject.FindGameObjectsWithTag("LostSoul").Length;
+        if (nbSoulsRemaining == 0)
+        {
+            dialogueManager.DisplaySimpleMessage("Les âmes damnées que vous avez libérées vous remercient. Le calice est désormais rempli, le passage s'ouvre.");
+            isComplete = true;
+        }
+        else
+        {
+            string plural = nbSoulsRemaining > 1 ? "s" : "";
+            dialogueManager.DisplaySimpleMessage($"Un imposant calice bloque le passage. Vous entendez encore les lamentations de {nbSoulsRemaining} groupe{plural} d'âmes damnées à libérer.");
+        }
+    }
+
+    private void DestroySelf()
+    {
+        dialogueManager.EndDialogue();
+        Destroy(gameObject);
     }
 }

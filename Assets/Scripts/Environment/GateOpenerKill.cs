@@ -28,7 +28,9 @@ public class GateOpenerKill : MonoBehaviour
     {
         if (playerNearby && inputManager.InteractInput)
         {
-            gate.DisplayMessage($"{GameObject.FindGameObjectsWithTag("Enemy").Length} ennemis empêchent la porte de s'ouvrir.");
+            int nbEnemiesRemaining = GameObject.FindGameObjectsWithTag("Enemy").Length;
+            string[] plural = nbEnemiesRemaining > 1 ? new string[2] {"s", "nt"} : new string[2] {"", ""};
+            gate.DisplayMessage($"{nbEnemiesRemaining} ennemi{plural[0]} empêche{plural[1]} la porte de s'ouvrir.");
         }
     }
 

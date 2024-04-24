@@ -57,8 +57,8 @@ public class DialogueManager : MonoBehaviour
         else if (quotes.Count > 0)
         { // If there is a next quote, dequeue it and display it
             quoteToDisplay = quotes.Dequeue();
-            StartCoroutine(DisplayQuote(quoteToDisplay));
             isCoroutinePlaying = true;
+            StartCoroutine(DisplayQuote(quoteToDisplay));
         }
         else
         { // If there is no quote left, close dialogue
