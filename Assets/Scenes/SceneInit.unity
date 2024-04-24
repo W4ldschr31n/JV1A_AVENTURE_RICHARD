@@ -281,19 +281,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6830071265357577593, guid: 6adf4dd7057bfea499a3916a3268623f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 116861529}
   m_SourcePrefab: {fileID: 100100000, guid: 6adf4dd7057bfea499a3916a3268623f, type: 3}
+--- !u!1 &108977976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6830071265357577593, guid: 6adf4dd7057bfea499a3916a3268623f, type: 3}
+  m_PrefabInstance: {fileID: 50930363}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &116861528 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8932089326074889391, guid: 6adf4dd7057bfea499a3916a3268623f, type: 3}
   m_PrefabInstance: {fileID: 50930363}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 108977976}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6ebe4a18eed33d41a177ba894a6e2a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &116861529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108977976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06a2185365c97d04f83cbc24842aee36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isKeyboard: 0
 --- !u!1001 &797606279
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -84,6 +84,7 @@ public class DialogueManager : MonoBehaviour
         // Check not null in case we close the game
         animator?.SetBool("IsOpen", false);
         dialogueCallback?.Invoke();
+        isCoroutinePlaying = false;
     }
 
     private List<string> WrapRichText(string quote)
