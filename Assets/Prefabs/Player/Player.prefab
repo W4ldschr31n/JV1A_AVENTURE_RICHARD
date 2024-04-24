@@ -306,7 +306,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5033481522864341928, guid: d26e5f3ba1ed3b4439d0397c4b705334, type: 3}
   maxHealth: 100
   health: 100
-  canJudgement: 0
+  canJudgement: 1
   canObole: 0
   canCharge: 0
   canBeDamaged: 1

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameData : MonoBehaviour
 {
@@ -17,12 +18,15 @@ public class GameData : MonoBehaviour
     public SceneAsset sceneToPlay;
     public SceneAsset sceneInventory;
     public bool isInventoryOpen;
+    public static Action onAbilityUnlocked;
+    private InputDisplayManager inputDisplayManager;
     // Start is called before the first frame update
     void Start()
     {
         // Init global stuff
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
+        inputDisplayManager = FindObjectOfType<InputDisplayManager>();
         isInventoryOpen = false;
         // Move player to the real game after init
         spawnDirection = Direction.Center;
@@ -96,7 +100,7 @@ public class GameData : MonoBehaviour
     private int GetRandomNbRewards()
     {
         // Custom randomizer to have 30% -> 0; 50% -> 1; 20% -> 2
-        int rawResult = Random.Range(0, 100);
+        int rawResult = UnityEngine.Random.Range(0, 100);
         return (
             rawResult <= 29 ? 0
             : rawResult <= 79 ? 1
@@ -109,7 +113,7 @@ public class GameData : MonoBehaviour
         Vector2 offset; // So that the objects don't stack upon each other
         for (int i = 0; i < nbRewards; i++)
         {
-            offset = new Vector2(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
+            offset = new Vector2(UnityEngine.Random.Range(-0.1f, 0.1f), UnityEngine.Random.Range(-0.1f, 0.1f));
             Instantiate(rewardObject, position + offset, Quaternion.identity);
         }
     }
@@ -134,6 +138,8 @@ public class GameData : MonoBehaviour
     public void UnlockJudgement()
     {
         player.canJudgement = true;
+        inputDisplayManager.canDisplayJudgement = true;
+        onAbilityUnlocked?.Invoke();
     }
 
     public void UnlockObole()
@@ -145,10 +151,14 @@ public class GameData : MonoBehaviour
         {
             inventory.CollectObole();
         }
+        inputDisplayManager.canDisplayObole = true;
+        onAbilityUnlocked?.Invoke();
     }
 
     public void UnlockCharge()
     {
         player.canCharge = true;
+        inputDisplayManager.canDisplayCharge = true;
+        onAbilityUnlocked?.Invoke();
     }
 }
