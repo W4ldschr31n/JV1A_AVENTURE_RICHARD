@@ -48,12 +48,12 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(Item item)
     {
-        if(items.Count < 3)
+        if(items.Count < 3 && !items.Contains(item))
         {
             items.Add(item);
             onItemAdded?.Invoke();
         }
-        // else: not supposed to happen  ¯\_(?)_/¯
+        // else: not supposed to happen  ¯\_()_/¯
     }
 
     public Item[] GetItems()
