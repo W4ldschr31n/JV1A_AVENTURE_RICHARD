@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System;
 
-public class PowerDisplay : MonoBehaviour
+public class InputDisplay : MonoBehaviour
 {
     [SerializeField]
     private GameObject imageBindController, textBindKeyboard;

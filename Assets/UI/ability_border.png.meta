@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 08b54e673f38cac4db07ce2c5ad4a70b
+guid: b13cb380ce7e0b44b8f97c971a0d8fac
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,9 +37,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 48
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: charge_0
+      name: ability_border_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 96
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 655bf38869303f74297ff74a202ebde1
-      internalID: -1195715393
+      spriteID: 65ef5d81681d966408a90f7cc8e62f92
+      internalID: -656858476
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charge_1
+      name: ability_border_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 100
         y: 0
-        width: 128
-        height: 96
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89253b1d6620dc14ea99678f8d19161f
-      internalID: 532987248
+      spriteID: 3a6ae13cf7400e841a2a2f997f81de34
+      internalID: 608552914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charge_2
+      name: ability_border_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 200
         y: 0
-        width: 128
-        height: 96
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +153,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b938cd01fa0b3e4890f31ad24adf99f
-      internalID: 1369236665
+      spriteID: 7a2382a0f282fb34ab37ce8c9c59a1ea
+      internalID: -1915620433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ability_border_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4ff1b2a6d14db4438396712466839fc
+      internalID: 1675541838
       vertices: []
       indices: 
       edges: []
@@ -170,9 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      charge_0: -1195715393
-      charge_1: 532987248
-      charge_2: 1369236665
+      ability_border_0: -656858476
+      ability_border_1: 608552914
+      ability_border_2: -1915620433
+      ability_border_3: 1675541838
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

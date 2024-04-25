@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowersDisplay : MonoBehaviour
 {
     [SerializeField]
     private GameObject judgementDisplay, oboleDisplay, chargeDisplay;
     private InputDisplayManager inputDisplayManager;
+    private Image panel;
     // Start is called before the first frame update
     void Start()
     {
         inputDisplayManager = FindObjectOfType<InputDisplayManager>();
+        panel = GetComponent<Image>();
         UpdateDisplay();
     }
 
@@ -26,11 +29,19 @@ public class PowersDisplay : MonoBehaviour
 
     void UpdateDisplay()
     {
-        if(judgementDisplay != null)
+        bool displayPanel = false;
+        if (judgementDisplay != null) {
             judgementDisplay.SetActive(inputDisplayManager.canDisplayJudgement);
-        if (oboleDisplay != null)
+            displayPanel |= inputDisplayManager.canDisplayJudgement;
+        }
+        if (oboleDisplay != null) {
             oboleDisplay.SetActive(inputDisplayManager.canDisplayObole);
-        if (chargeDisplay != null)
+            displayPanel |= inputDisplayManager.canDisplayObole;
+        }
+        if (chargeDisplay != null) {
             chargeDisplay.SetActive(inputDisplayManager.canDisplayCharge);
+            displayPanel |= inputDisplayManager.canDisplayCharge;
+        }
+        panel.enabled = displayPanel;
     }
 }
