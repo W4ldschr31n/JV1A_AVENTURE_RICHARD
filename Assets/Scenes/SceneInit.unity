@@ -285,6 +285,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6830071265357577593, guid: 6adf4dd7057bfea499a3916a3268623f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 116861529}
+    - targetCorrespondingSourceObject: {fileID: 6830071265357577593, guid: 6adf4dd7057bfea499a3916a3268623f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 116861530}
   m_SourcePrefab: {fileID: 100100000, guid: 6adf4dd7057bfea499a3916a3268623f, type: 3}
 --- !u!1 &108977976 stripped
 GameObject:
@@ -315,6 +318,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isKeyboard: 0
+  canDisplayJudgement: 0
+  canDisplayObole: 0
+  canDisplayCharge: 0
+--- !u!114 &116861530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108977976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96e408d101a0e7b4fb188f637e038456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &797606279
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,11 +11,11 @@ public class DropItemOnDeath : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (gameObject.scene.isLoaded) // Prevents bugs when changing scene or quitting game
-        {
-            GameObject drop = Instantiate(dropPrefab, transform.position, Quaternion.identity);
-            drop.GetComponent<DropItem>().item = itemToDrop;
-        }
+        if (!gameObject.scene.isLoaded) // Prevents bugs when changing scene or quitting game
+            return;
+
+        GameObject drop = Instantiate(dropPrefab, transform.position, Quaternion.identity);
+        drop.GetComponent<DropItem>().item = itemToDrop;
 
     }
 }

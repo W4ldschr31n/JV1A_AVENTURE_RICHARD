@@ -82,7 +82,8 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         // Check not null in case we close the game
-        animator?.SetBool("IsOpen", false);
+        if(animator != null)
+            animator.SetBool("IsOpen", false);
         dialogueCallback?.Invoke();
         isCoroutinePlaying = false;
     }

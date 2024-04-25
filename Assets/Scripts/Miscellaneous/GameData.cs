@@ -8,7 +8,7 @@ using System;
 public class GameData : MonoBehaviour
 {
     private Direction spawnDirection;
-    private Vector2 spawnPoint = Vector2.zero;
+    public Vector2 spawnPoint = Vector2.zero;
     private PlayerControl player;
     private CameraFollow mainCamera;
     private LevelData levelData;
@@ -53,7 +53,7 @@ public class GameData : MonoBehaviour
 
     }
 
-    private void MovePlayerToSpawn()
+    public void MovePlayerToSpawn()
     {
         player.transform.position = spawnPoint;
         mainCamera.transform.position = new Vector3(spawnPoint.x, spawnPoint.y, mainCamera.transform.position.z);

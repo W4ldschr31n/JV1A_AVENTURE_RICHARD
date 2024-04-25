@@ -100,7 +100,7 @@ public class PlayerControl : MonoBehaviour
         // Reset
         if (Input.GetKeyDown(KeyCode.R))
         {
-            transform.position = Vector2.zero;
+            gameData.MovePlayerToSpawn();
         }
 
         // Movement - the actual moving happens in DirectionalMovement.FixedUpdate() for consistency reasons
