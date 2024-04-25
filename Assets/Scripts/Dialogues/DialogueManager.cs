@@ -26,6 +26,8 @@ public class DialogueManager : MonoBehaviour
     {
         // Build the queue from the dialogue array
         quotes = new Queue<string>(dialogue.quotes);
+        StopAllCoroutines();
+        isCoroutinePlaying = false;
         // Record the callback
         dialogueCallback = callback;
 
@@ -39,6 +41,9 @@ public class DialogueManager : MonoBehaviour
         // In case we want to display one dynamic message
         quotes = new Queue<string>();
         quotes.Enqueue(message);
+        StopAllCoroutines();
+        isCoroutinePlaying = false;
+
         dialogueCallback = callback;
 
         animator.SetBool("IsOpen", true);

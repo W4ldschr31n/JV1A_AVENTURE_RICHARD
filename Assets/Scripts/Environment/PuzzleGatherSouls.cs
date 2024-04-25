@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PuzzleGatherSouls : MonoBehaviour
 {
     private DialogueManager dialogueManager;
     private bool isPlayerInRange, isComplete;
     private InputManager inputManager;
+    private bool isTalking;
+    [SerializeField]
+    UnityEvent onDialogueEnd;
 
     void Start()
     {
@@ -18,13 +22,14 @@ public class PuzzleGatherSouls : MonoBehaviour
     {
         if (isPlayerInRange && inputManager.InteractInput)
         {
-            if(!isComplete)
+            if (!isTalking)
             {
                 TriggerDialogue();
+                isTalking = true;
             }
             else
             {
-                DestroySelf();
+                dialogueManager.DisplayNextQuote();
             }
         }
     }
@@ -41,15 +46,8 @@ public class PuzzleGatherSouls : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (!isComplete)
-            {
-                isPlayerInRange = false;
-                dialogueManager.EndDialogue();
-            }
-            else
-            {
-                DestroySelf();
-            }
+            isPlayerInRange = false;
+            dialogueManager.EndDialogue();
         }
     }
 
@@ -58,19 +56,22 @@ public class PuzzleGatherSouls : MonoBehaviour
         int nbSoulsRemaining = GameObject.FindGameObjectsWithTag("LostSoul").Length;
         if (nbSoulsRemaining == 0)
         {
-            dialogueManager.DisplaySimpleMessage("Les âmes damnées que vous avez libérées vous remercient. Le calice est désormais rempli, le passage s'ouvre.");
+            dialogueManager.DisplaySimpleMessage("Les âmes damnées que vous avez libérées vous remercient. Le calice est désormais rempli, le passage s'ouvre.", onDialogueEnd);
             isComplete = true;
         }
         else
         {
             string plural = nbSoulsRemaining > 1 ? "s" : "";
-            dialogueManager.DisplaySimpleMessage($"Un imposant calice bloque le passage. Vous entendez encore les lamentations de {nbSoulsRemaining} groupe{plural} d'âmes damnées à libérer.");
+            dialogueManager.DisplaySimpleMessage($"Un imposant calice bloque le passage. Vous entendez encore les lamentations de {nbSoulsRemaining} groupe{plural} d'âmes damnées à libérer.", onDialogueEnd);
         }
     }
 
-    private void DestroySelf()
+    public void StopTalking()
     {
-        dialogueManager.EndDialogue();
-        Destroy(gameObject);
+        isTalking = false;
+        if (isComplete)
+        {
+            Destroy(gameObject);
+        }
     }
 }

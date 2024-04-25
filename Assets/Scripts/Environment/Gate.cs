@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Gate : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class Gate : MonoBehaviour
     [SerializeField]
     private GameObject closedHitbox, openHitbox;
     public AnimationClip openAnimation;
+    private bool isTalking;
+    [SerializeField]
+    UnityEvent onDialogueEnd;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +28,15 @@ public class Gate : MonoBehaviour
 
     public void DisplayMessage(string message)
     {
-        dialogueManager.DisplaySimpleMessage(message);
+        if (!isTalking)
+        {
+            dialogueManager.DisplaySimpleMessage(message, onDialogueEnd);
+            isTalking = true;
+        }
+        else
+        {
+            dialogueManager.DisplayNextQuote();
+        }
     }
 
     public void HideMessage()
@@ -38,6 +50,11 @@ public class Gate : MonoBehaviour
         closedHitbox.SetActive(false);
         openHitbox.SetActive(true);
         dialogueManager.EndDialogue();
+    }
+
+    public void StopTalking()
+    {
+        isTalking = false;
     }
 
 }

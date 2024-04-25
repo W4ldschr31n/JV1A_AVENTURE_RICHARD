@@ -49,7 +49,7 @@ MonoBehaviour:
   spawnPoint: {x: 0, y: 0}
   obolePrefab: {fileID: 5709329042289183038, guid: adfa185393b8502418379036b93df605, type: 3}
   faithPrefab: {fileID: 338866202435656704, guid: ff26c9bcb2c14b04e87636b04b3c1564, type: 3}
-  sceneToPlay: {fileID: 102900000, guid: 2cda990e2423bbf4892e6590ba056729, type: 3}
+  sceneToPlay: {fileID: 102900000, guid: 375afac9f2abf7441b87e7afc8e93fe6, type: 3}
   sceneInventory: {fileID: 102900000, guid: f5d72be892d77394cabe3500d2db1053, type: 3}
   isInventoryOpen: 0
 --- !u!114 &7355467585529720481

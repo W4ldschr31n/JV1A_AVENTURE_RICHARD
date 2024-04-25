@@ -104,6 +104,21 @@ MonoBehaviour:
   closedHitbox: {fileID: 5715022647217938773}
   openHitbox: {fileID: 8817596857504107047}
   openAnimation: {fileID: 7400000, guid: 8fbba95493fd5934c8e724f9765af857, type: 2}
+  onDialogueEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 399456065509565159}
+        m_TargetAssemblyTypeName: Gate, Assembly-CSharp
+        m_MethodName: StopTalking
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &5342007120353268668
 Animator:
   serializedVersion: 5
