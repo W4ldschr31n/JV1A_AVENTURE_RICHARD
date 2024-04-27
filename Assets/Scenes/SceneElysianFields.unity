@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1423063866215246057, guid: 78eede8eef4082d439dcb9a498e0b4dd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 901b489b6e17288449be2b52ac1d1e84, type: 3}
     - target: {fileID: 3806944944121562835, guid: 78eede8eef4082d439dcb9a498e0b4dd, type: 3}
       propertyPath: m_Name
       value: DropItem
@@ -1187,6 +1191,7 @@ GameObject:
   - component: {fileID: 384732563}
   - component: {fileID: 384732562}
   - component: {fileID: 384732561}
+  - component: {fileID: 384732564}
   m_Layer: 3
   m_Name: Puzzle
   m_TagString: Untagged
@@ -1272,6 +1277,18 @@ Transform:
   - {fileID: 1719615609}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &384732564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384732560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7e11795c463ea4abcbd47dc6e49926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &465014839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1334,7 +1351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8140901906047103144, guid: ba4b325d88fffe34b8912d3e8f0527bb, type: 3}
       propertyPath: m_Name
-      value: EnemyTrackerWithPinkKey
+      value: EnemyTrackerWithRedKey
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5929,6 +5946,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1423063866215246057, guid: 78eede8eef4082d439dcb9a498e0b4dd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d63cd3943473a74bb71aa405b6a9ae7, type: 3}
     - target: {fileID: 3806944944121562835, guid: 78eede8eef4082d439dcb9a498e0b4dd, type: 3}
       propertyPath: m_Name
       value: DropItem (1)

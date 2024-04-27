@@ -38,13 +38,13 @@ public class ItemsDisplay : MonoBehaviour
         // Display the items we have (up to 3)
         for (int i =0; i<nbItems; i++)
         {
-            images[i].enabled = true;
+            images[i].gameObject.SetActive(true);
             images[i].sprite = items[i].sprite;
         }
         // Hide the spots for items we don't have
         for(int i=nbItems; i<3; i++)
         {
-            images[i].enabled = false;
+            images[i].gameObject.SetActive(false);
         }
         // Show the panel only if we have items
         panel.enabled = nbItems > 0;
