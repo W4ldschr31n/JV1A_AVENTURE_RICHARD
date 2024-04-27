@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class InteractionFirstSeal : MonoBehaviour
+public class InteractionSecondSeal : MonoBehaviour
 {
     private DialogueManager dialogueManager;
     private InputManager inputManager;
@@ -37,7 +37,7 @@ public class InteractionFirstSeal : MonoBehaviour
     public void TriggerDialogue()
     {
         isEnabled = true;
-        dialogueManager.DisplaySimpleMessage("Vous trouvez le <b>sceau de la justice</b>.");
+        dialogueManager.DisplaySimpleMessage("Vous trouvez le <b>sceau de la fureur</b>. FIN DU JEU");
     }
 
     public void DestroySelf()
