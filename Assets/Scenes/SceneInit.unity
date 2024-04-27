@@ -1429,6 +1429,14 @@ PrefabInstance:
       value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 829275183045074986, guid: e082fac120316b144801b5b49d16e372, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 829275183045074986, guid: e082fac120316b144801b5b49d16e372, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 829275183045074986, guid: e082fac120316b144801b5b49d16e372, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1556,6 +1564,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 3b941abd48870434a9a450c14d9ebc46, type: 3}
+    - target: {fileID: 7617502737310154957, guid: e082fac120316b144801b5b49d16e372, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8064302099210683033, guid: e082fac120316b144801b5b49d16e372, type: 3}
       propertyPath: m_Action
       value: 
@@ -2178,7 +2190,7 @@ MonoBehaviour:
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 1
-  m_ChildScaleHeight: 0
+  m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
 --- !u!224 &1806998960 stripped
 RectTransform:
@@ -3069,7 +3081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6806863481947744240, guid: 72a5489266401c74f8c72e5b0eb74960, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 160
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 6806863481947744240, guid: 72a5489266401c74f8c72e5b0eb74960, type: 3}
       propertyPath: m_LocalPosition.x
