@@ -192,7 +192,6 @@ public class PlayerControl : MonoBehaviour
     {
         if (canBeDamaged)
         {
-            animator.SetTrigger("Hit");
             // Lose health
             health = Math.Max(0, health - damage);
             onPlayerTakeHit?.Invoke();
@@ -200,6 +199,10 @@ public class PlayerControl : MonoBehaviour
             if (health <= 0)
             {
                 Die();
+            }
+            else
+            {
+                animator.SetTrigger("Hit");
             }
 
         }
@@ -213,8 +216,17 @@ public class PlayerControl : MonoBehaviour
 
     public void Die()
     {
+        rgbd.simulated = false;
         onPlayerDead?.Invoke();
-        animator.SetTrigger("Dead");
+        animator.SetTrigger("Die");
+    }
+
+    public void Resurrect()
+    {
+        rgbd.simulated = true;
+        health = maxHealth;
+        onPlayerHeal?.Invoke();
+        animator.SetTrigger("Resurrect");
     }
 
     public bool IsFullLife()

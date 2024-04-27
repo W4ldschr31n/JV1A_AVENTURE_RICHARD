@@ -20,6 +20,8 @@ public class GameData : MonoBehaviour
     public bool isInventoryOpen;
     public static Action onAbilityUnlocked;
     private InputDisplayManager inputDisplayManager;
+    private DeathScreenManager deathScreenManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class GameData : MonoBehaviour
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
         inputDisplayManager = FindObjectOfType<InputDisplayManager>();
         isInventoryOpen = false;
+        deathScreenManager = FindObjectOfType<DeathScreenManager>();
         // Move player to the real game after init
         spawnDirection = Direction.Center;
         SceneManager.LoadScene(sceneToPlay.name);
@@ -38,6 +41,7 @@ public class GameData : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
         LostSoul.onLostSoulFreed += OnLostSoulFreed;
         EnemyBehaviour.onEnemyKilled += OnEnemyKilled;
+        PlayerControl.onPlayerDead += OnPlayerDead;
     }
 
     private void OnDisable()
@@ -45,6 +49,7 @@ public class GameData : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
         LostSoul.onLostSoulFreed -= OnLostSoulFreed;
         EnemyBehaviour.onEnemyKilled -= OnEnemyKilled;
+        PlayerControl.onPlayerDead -= OnPlayerDead;
     }
 
     // Update is called once per frame
@@ -116,6 +121,18 @@ public class GameData : MonoBehaviour
             offset = new Vector2(UnityEngine.Random.Range(-0.1f, 0.1f), UnityEngine.Random.Range(-0.1f, 0.1f));
             Instantiate(rewardObject, position + offset, Quaternion.identity);
         }
+    }
+
+    private void OnPlayerDead()
+    {
+        deathScreenManager.ShowPanel();
+    }
+
+    public void ResurrectPlayer()
+    {
+        player.Resurrect();
+        MovePlayerToSpawn();
+        deathScreenManager.HidePanel();
     }
 
     public void ToggleInventory()
