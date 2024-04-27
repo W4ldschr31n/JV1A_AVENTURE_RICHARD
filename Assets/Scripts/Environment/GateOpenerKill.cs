@@ -32,7 +32,7 @@ public class GateOpenerKill : MonoBehaviour
         {
             int nbEnemiesRemaining = GameObject.FindGameObjectsWithTag("Enemy").Length;
             string[] plural = nbEnemiesRemaining > 1 ? new string[2] {"s", "nt"} : new string[2] {"", ""};
-            gate.DisplayMessage($"{nbEnemiesRemaining} ennemi{plural[0]} empêche{plural[1]} la porte de s'ouvrir.");
+            gate.DisplayMessage($"{nbEnemiesRemaining} démon{plural[0]} empêche{plural[1]} la porte de s'ouvrir.");
         }
     }
 
@@ -56,7 +56,7 @@ public class GateOpenerKill : MonoBehaviour
     private void CheckEnemiesAreDead(GameObject _enemy, Vector2 _position, KillMethod _killMethod)
     {
         // Wait a bit so the enemy that died is destroy
-        Invoke("CheckAndDestroy", 0.5f);
+        Invoke(nameof(CheckAndDestroy), 0.5f);
     }
 
     private void CheckAndDestroy()

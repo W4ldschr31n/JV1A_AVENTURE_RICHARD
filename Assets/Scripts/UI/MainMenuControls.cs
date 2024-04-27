@@ -17,7 +17,7 @@ public class MainMenuControls : MonoBehaviour
     {
         titleScreen.SetActive(false);
         // Show the menu after a few frames to avoid hitting the play button instantly
-        Invoke("OptionsBackButton", 0.5f);
+        Invoke(nameof(OptionsBackButton), 0.5f);
     }
 
     public void PlayButton()

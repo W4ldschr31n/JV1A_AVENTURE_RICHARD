@@ -18,6 +18,8 @@ public class InteractPanelManager : MonoBehaviour
 
     public void HidePanel()
     {
-        interactpanel.SetActive(false);
+        // Check not null in case we close the game
+        if (interactpanel != null)
+            interactpanel.SetActive(false);
     }
 }
