@@ -5,12 +5,14 @@ using UnityEngine;
 public class GateOpenerKill : MonoBehaviour
 {
     private Gate gate;
+    private Interactable interactable;
     private bool playerNearby;
     private InputManager inputManager;
 
     private void Start()
     {
         gate = GetComponent<Gate>();
+        interactable = GetComponent<Interactable>();
         inputManager = FindObjectOfType<InputManager>();
     }
     void OnEnable()
@@ -62,6 +64,7 @@ public class GateOpenerKill : MonoBehaviour
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
             gate.OpenGate();
+            interactable.DisableSelf();
             this.enabled = false;
         }
     }

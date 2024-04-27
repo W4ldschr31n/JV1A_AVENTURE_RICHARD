@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 224440944912257444}
   - component: {fileID: 6886967519508747108}
   - component: {fileID: 788881267415042782}
+  - component: {fileID: 1757977605949013254}
   m_Layer: 10
   m_Name: NPC
   m_TagString: Untagged
@@ -149,3 +150,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1757977605949013254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197514848171816488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7e11795c463ea4abcbd47dc6e49926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

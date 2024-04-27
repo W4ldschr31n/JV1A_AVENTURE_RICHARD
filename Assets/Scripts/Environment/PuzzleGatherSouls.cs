@@ -6,8 +6,9 @@ using UnityEngine.Events;
 public class PuzzleGatherSouls : MonoBehaviour
 {
     private DialogueManager dialogueManager;
-    private bool isPlayerInRange, isComplete;
     private InputManager inputManager;
+    private Interactable interactable;
+    private bool isPlayerInRange, isComplete;
     private bool isTalking;
     [SerializeField]
     UnityEvent onDialogueEnd;
@@ -16,6 +17,7 @@ public class PuzzleGatherSouls : MonoBehaviour
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
         inputManager = FindObjectOfType<InputManager>();
+        interactable = GetComponent<Interactable>();
     }
 
     void Update()
@@ -71,6 +73,7 @@ public class PuzzleGatherSouls : MonoBehaviour
         isTalking = false;
         if (isComplete)
         {
+            interactable.DisableSelf();
             Destroy(gameObject);
         }
     }

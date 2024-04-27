@@ -293,6 +293,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6830071265357577593, guid: 6adf4dd7057bfea499a3916a3268623f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 116861530}
+    - targetCorrespondingSourceObject: {fileID: 6830071265357577593, guid: 6adf4dd7057bfea499a3916a3268623f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 116861531}
   m_SourcePrefab: {fileID: 100100000, guid: 6adf4dd7057bfea499a3916a3268623f, type: 3}
 --- !u!1 &107209691 stripped
 GameObject:
@@ -343,6 +346,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e408d101a0e7b4fb188f637e038456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &116861531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108977976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e2805869330c364d85c0fb0f09bd9a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactpanel: {fileID: 1942807864}
 --- !u!1 &184948958
 GameObject:
   m_ObjectHideFlags: 0
@@ -2339,7 +2355,7 @@ GameObject:
   - component: {fileID: 1942807870}
   - component: {fileID: 1942807869}
   m_Layer: 5
-  m_Name: InteractionPanel
+  m_Name: InteractPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

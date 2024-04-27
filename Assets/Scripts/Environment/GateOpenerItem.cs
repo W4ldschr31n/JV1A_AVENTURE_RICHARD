@@ -5,6 +5,7 @@ using UnityEngine;
 public class GateOpenerItem : MonoBehaviour
 {
     private Gate gate;
+    private Interactable interactable;
     private bool playerNearby;
     private InputManager inputManager;
     private Inventory inventory;
@@ -13,7 +14,8 @@ public class GateOpenerItem : MonoBehaviour
     private void Start()
     {
         gate = GetComponent<Gate>();
-        inventory =FindObjectOfType<Inventory>();
+        interactable = GetComponent<Interactable>();
+        inventory = FindObjectOfType<Inventory>();
         inputManager = FindObjectOfType<InputManager>();
     }
 
@@ -24,6 +26,7 @@ public class GateOpenerItem : MonoBehaviour
             if (inventory.CheckHasItem(item))
             {
                 gate.OpenGate();
+                interactable.DisableSelf();
                 this.enabled = false;
             }
             else

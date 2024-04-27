@@ -5,12 +5,14 @@ using UnityEngine;
 public class GateOpenerJudgement : MonoBehaviour
 {
     private Gate gate;
+    private Interactable interactable;
     private bool playerNearby;
     private InputManager inputManager;
 
     private void Start()
     {
         gate = GetComponent<Gate>();
+        interactable = GetComponent<Interactable>();
         inputManager = FindObjectOfType<InputManager>();
     }
 
@@ -30,6 +32,7 @@ public class GateOpenerJudgement : MonoBehaviour
         }else if(collision.gameObject.CompareTag("Judgement"))
         {
             gate.OpenGate();
+            interactable.DisableSelf();
             this.enabled = false;
         }
     }
