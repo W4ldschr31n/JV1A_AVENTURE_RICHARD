@@ -5,8 +5,8 @@ using UnityEngine;
 public class UnlockCharge : MonoBehaviour
 {
     private GameData gameData;
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         gameData = FindObjectOfType<GameData>();
     }
