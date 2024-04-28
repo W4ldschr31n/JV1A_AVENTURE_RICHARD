@@ -96,18 +96,22 @@ public class GameData : MonoBehaviour
     private void OnEnemyKilled(GameObject enemy, Vector2 position, KillMethod killMethod)
     {
         Destroy(enemy);
-        // Get data for the rewards (judgement or charge ->obole; obole->faith)
-        int nbRewards = GetRandomNbRewards();
-        GameObject rewardObject = killMethod == KillMethod.Obole ? faithPrefab : obolePrefab;
-        SpawnRewards(rewardObject, nbRewards, position);
+        // Player must have progressed and unlocked oboles to get drop rewards
+        if (inputDisplayManager.canDisplayObole)
+        {
+            // Get data for the rewards (judgement or charge ->obole; obole->faith)
+            int nbRewards = GetRandomNbRewards();
+            GameObject rewardObject = killMethod == KillMethod.Obole ? faithPrefab : obolePrefab;
+            SpawnRewards(rewardObject, nbRewards, position);
+        }
     }
 
     private int GetRandomNbRewards()
     {
-        // Custom randomizer to have 30% -> 0; 50% -> 1; 20% -> 2
+        // Custom randomizer to have 50% -> 0; 30% -> 1; 20% -> 2
         int rawResult = UnityEngine.Random.Range(0, 100);
         return (
-            rawResult <= 29 ? 0
+            rawResult <= 49 ? 0
             : rawResult <= 79 ? 1
             : 2
         );

@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 144396190}
   - component: {fileID: 144396189}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Text Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -533,8 +533,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 0}
-  m_SizeDelta: {x: 170, y: 150}
+  m_AnchoredPosition: {x: 50, y: 30.000015}
+  m_SizeDelta: {x: 170, y: 46.3494}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &144396189
 MonoBehaviour:
@@ -563,16 +563,13 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 5
+    m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'VIE
-
-
-    OBOLES'
+  m_Text: VIE
 --- !u!222 &144396190
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2269,6 +2266,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6148744741374148355, guid: 72a9a803c90111e40b596098c31d0330, type: 3}
   m_PrefabInstance: {fileID: 1291419012}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1291419014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1814726244609692878, guid: 72a9a803c90111e40b596098c31d0330, type: 3}
+  m_PrefabInstance: {fileID: 1291419012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1299115150
 GameObject:
   m_ObjectHideFlags: 0
@@ -2544,6 +2546,7 @@ GameObject:
   - component: {fileID: 1375935591}
   - component: {fileID: 1375935593}
   - component: {fileID: 1375935592}
+  - component: {fileID: 1375935594}
   m_Layer: 5
   m_Name: PanelStats
   m_TagString: Untagged
@@ -2564,6 +2567,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 144396188}
+  - {fileID: 1851911695}
   - {fileID: 1628141895}
   - {fileID: 1291419013}
   m_Father: {fileID: 435099474}
@@ -2611,6 +2615,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375935590}
   m_CullTransparentMesh: 1
+--- !u!114 &1375935594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375935590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f94abe4794295c942a4c381f297b9c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textOboles: {fileID: 1851911694}
+  imageOboles: {fileID: 1291419014}
 --- !u!1 &1486623988
 GameObject:
   m_ObjectHideFlags: 0
@@ -3315,6 +3333,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756594228}
+  m_CullTransparentMesh: 1
+--- !u!1 &1851911694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1851911695}
+  - component: {fileID: 1851911697}
+  - component: {fileID: 1851911696}
+  m_Layer: 5
+  m_Name: Text Oboles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1851911695
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851911694}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1375935591}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 50, y: -50}
+  m_SizeDelta: {x: 170, y: 41.3177}
+  m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &1851911696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851911694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 8
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: OBOLES
+--- !u!222 &1851911697
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851911694}
   m_CullTransparentMesh: 1
 --- !u!1001 &1884531035
 PrefabInstance:
