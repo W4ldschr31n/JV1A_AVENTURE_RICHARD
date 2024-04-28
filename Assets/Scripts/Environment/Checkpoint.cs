@@ -1,19 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
+    // External data
     public Landmark landmark;
+
+    // External components
     private MinimapManager minimapManager;
     private GameData gameData;
-    // Start is called before the first frame update
+
     void Start()
     {
         minimapManager = FindObjectOfType<MinimapManager>();
         gameData = FindObjectOfType<GameData>();
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -1,24 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    // External components
     public SceneAsset sceneToLoad;
-    public Direction arrivalDirection = Direction.Center;
     private GameData gameData;
-    // Start is called before the first frame update
+    // Properties
+    public Direction arrivalDirection = Direction.Center;
+
     void Start()
     {
         gameData = FindObjectOfType<GameData>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,7 +23,7 @@ public class SceneChanger : MonoBehaviour
     }
 }
 
-public enum Direction
+public enum Direction // Helps to move to another scene
 {
     Center,
     North,

@@ -1,17 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-
 public class EnemyBehaviour : MonoBehaviour
 {
-    public int damage;
+    //Events
     public static event Action<Vector2, KillMethod> onEnemyKilled;
+
+    // Properties
+    public int damage;
+
+    // Internal components
     private Animator animator;
     private Rigidbody2D rgbd;
 
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -52,12 +53,10 @@ public class EnemyBehaviour : MonoBehaviour
     {
         Destroy(gameObject.transform.parent.gameObject);
     }
-
-
 }
 
 
-public enum KillMethod
+public enum KillMethod // Helps to decide what reward to drop
 {
     Judgement,
     Obole,

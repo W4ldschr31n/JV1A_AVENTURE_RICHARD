@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SecondSeal : MonoBehaviour
 {
+    // External components
     public GameObject portalToSpawn;
     private Inventory inventory;
     [SerializeField]

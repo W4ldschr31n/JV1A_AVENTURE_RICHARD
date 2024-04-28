@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    // External components
     private InteractPanelManager interactPanelManager;
 
+    // Properties
     private bool isActivable = true;
 
     private void Start()

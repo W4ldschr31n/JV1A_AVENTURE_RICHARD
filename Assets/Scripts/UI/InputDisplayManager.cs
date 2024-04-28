@@ -4,18 +4,19 @@ using System;
 
 public class InputDisplayManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public bool isKeyboard;
+    // External component
     private InputManager inputManager;
+    // Properties
+    public bool isKeyboard;
+    public bool canDisplayJudgement, canDisplayObole, canDisplayCharge;
+    // Event
     public static Action onInputPressed;
 
-    public bool canDisplayJudgement, canDisplayObole, canDisplayCharge;
     void Start()
     {
         inputManager = FindObjectOfType<InputManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Unity does not detect D-Pad and Joystick so force their detection

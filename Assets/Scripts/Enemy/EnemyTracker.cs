@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyTracker : MonoBehaviour
@@ -16,7 +14,6 @@ public class EnemyTracker : MonoBehaviour
     private bool isTracking = false;
     private Transform player;
 
-    // Start is called before the first frame update
     void Start()
     {
         directionalMovement = GetComponent<DirectionalMovement>();
@@ -24,7 +21,6 @@ public class EnemyTracker : MonoBehaviour
         basePosition = baseSpot.position;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         Vector3 targetPosition = isTracking ? player.position : basePosition;

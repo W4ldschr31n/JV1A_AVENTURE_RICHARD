@@ -1,15 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class DialogueNpc : MonoBehaviour
 {
+    // External data
     public Dialogue dialogue;
+
+    // Properties
     private bool isPlayerInRange, isTalking;
+
+    // Internal components
     private DialogueManager dialogueManager;
     private InputManager inputManager;
 
+    // Unity event
     [SerializeField]
     UnityEvent onDialogueEnd;
 

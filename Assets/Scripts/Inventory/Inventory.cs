@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -6,23 +5,19 @@ using System.Linq;
 
 public class Inventory : MonoBehaviour
 {
+    // Properties
     private int nbOboles;
     public bool hasFirstSeal;
     public bool hasSecondSeal;
+    private List<Item> items;
+    // Events
     public static event Action onOboleCollected;
     public static event Action onOboleSpent;
     public static event Action onItemAdded;
-    private List<Item> items;
-    // Start is called before the first frame update
+
     void Start()
     {
         items = new List<Item>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void CollectObole()

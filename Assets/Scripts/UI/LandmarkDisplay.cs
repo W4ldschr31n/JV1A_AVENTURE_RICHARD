@@ -1,20 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LandmarkDisplay : MonoBehaviour
 {
-    private MinimapManager minimapManager;
+    // External data
     public Landmark landmark;
+    // External components
+    private MinimapManager minimapManager;
+    // Internal components
     private Image image;
-    // Start is called before the first frame update
+
     void Start()
     {
         minimapManager = FindObjectOfType<MinimapManager>();
         image = GetComponent<Image>();
 
-        // Only display the map aprt associated to the landmark when we visited it
+        // Only display the map part associated to the landmark if we visited it
         image.enabled = minimapManager.CheckLandmarkIsVisited(landmark);
     }
 

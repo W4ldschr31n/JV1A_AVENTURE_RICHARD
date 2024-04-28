@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DestructibleWall : MonoBehaviour
 {
+    // Internal components
     private Animator animator;
 
     private void Start()

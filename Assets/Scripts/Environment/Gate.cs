@@ -1,29 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Gate : MonoBehaviour
 {
+    // Internal components
     private DialogueManager dialogueManager;
     private Animator animator;
+
+    // External components
     [SerializeField]
     private GameObject closedHitbox, openHitbox;
     public AnimationClip openAnimation;
+
+    // Properties
     private bool isTalking;
+
+    // Unity event
     [SerializeField]
     UnityEvent onDialogueEnd;
-    // Start is called before the first frame update
+
     void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
         animator = GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void DisplayMessage(string message)
@@ -47,6 +46,7 @@ public class Gate : MonoBehaviour
     public void OpenGate()
     {
         animator.Play(openAnimation.name);
+        // Switch hitbox
         closedHitbox.SetActive(false);
         openHitbox.SetActive(true);
         dialogueManager.EndDialogue();

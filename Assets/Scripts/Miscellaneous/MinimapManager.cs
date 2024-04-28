@@ -1,11 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MinimapManager : MonoBehaviour
 {
+    // Properties
     public Dictionary<Landmark, bool> visitedLandmarks;
-    // Start is called before the first frame update
+
     void Start()
     {
         visitedLandmarks = new Dictionary<Landmark, bool>();
@@ -23,7 +23,7 @@ public class MinimapManager : MonoBehaviour
 }
 
 
-public enum Landmark
+public enum Landmark // Helps to display the minimap
 {
     StyxCenter,
     StyxNorth,

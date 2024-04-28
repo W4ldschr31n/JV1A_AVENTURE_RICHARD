@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 
 public class MainMenuControls : MonoBehaviour
 {
+    // External components
     [SerializeField]
     GameObject titleScreen;
 
@@ -34,6 +35,7 @@ public class MainMenuControls : MonoBehaviour
 
     public void QuitButton()
     {
+        // Quitting method is different between play mode and build
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #endif

@@ -6,14 +6,16 @@ using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
-    public Text nameText;
-    public Text dialogueText;
+    // External components
+    [SerializeField]
+    private Text nameText, dialogueText;
+    [SerializeField]
+    private Animator animator;
 
+    // Properties
     private Queue<string> quotes;
     private string quoteToDisplay;
     private bool isCoroutinePlaying;
-    [SerializeField]
-    private Animator animator;
     private UnityEvent dialogueCallback;
 
     private void Start()
@@ -30,7 +32,7 @@ public class DialogueManager : MonoBehaviour
         isCoroutinePlaying = false;
         // Record the callback
         dialogueCallback = callback;
-
+        // Display the dialogue
         animator.SetBool("IsOpen", true);
         nameText.text = dialogue.npcName;
         DisplayNextQuote();
@@ -39,13 +41,14 @@ public class DialogueManager : MonoBehaviour
     public void DisplaySimpleMessage(string message, UnityEvent callback = null)
     {
         // In case we want to display one dynamic message
+        // Build the queue from the only message
         quotes = new Queue<string>();
         quotes.Enqueue(message);
         StopAllCoroutines();
         isCoroutinePlaying = false;
-
+        // Record the callback
         dialogueCallback = callback;
-
+        // Display the dialogue
         animator.SetBool("IsOpen", true);
         nameText.text = string.Empty;
         DisplayNextQuote();

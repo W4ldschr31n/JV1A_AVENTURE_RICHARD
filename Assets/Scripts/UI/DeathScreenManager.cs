@@ -1,21 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DeathScreenManager : MonoBehaviour
 {
+    // External component
     private GameData gameData;
+    // Internal component
     private Animator animator;
+    // Properties
     public bool canInput;
 
-    // Start is called before the first frame update
     void Start()
     {
         gameData = FindObjectOfType<GameData>();
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (canInput && Input.anyKeyDown)

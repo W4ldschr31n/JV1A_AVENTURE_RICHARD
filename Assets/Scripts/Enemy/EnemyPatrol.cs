@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
@@ -13,7 +11,6 @@ public class EnemyPatrol : MonoBehaviour
     private Vector3 currentTarget;
     private bool goTowardsFirst = true;
     
-    // Start is called before the first frame update
     void Start()
     {
         directionalMovement = GetComponent<DirectionalMovement>();

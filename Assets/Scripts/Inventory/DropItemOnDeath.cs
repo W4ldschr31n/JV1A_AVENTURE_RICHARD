@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DropItemOnDeath : MonoBehaviour
 {
+    // External data
     [SerializeField]
     private Item itemToDrop;
     [SerializeField]
@@ -11,7 +10,8 @@ public class DropItemOnDeath : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (!gameObject.scene.isLoaded) // Prevents bugs when changing scene or quitting game
+        // Prevents bugs when changing scene or quitting game
+        if (!gameObject.scene.isLoaded)
             return;
 
         GameObject drop = Instantiate(dropPrefab, transform.position, Quaternion.identity);

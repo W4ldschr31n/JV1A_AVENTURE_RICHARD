@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class OboleCounter : MonoBehaviour
 {
-    private Text textCounter;
+    // External component
     private Inventory inventory;
+    // Internal component
+    private Text textCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,12 +27,6 @@ public class OboleCounter : MonoBehaviour
     {
         Inventory.onOboleCollected -= UpdateCounter;
         Inventory.onOboleSpent -= UpdateCounter;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void UpdateCounter()

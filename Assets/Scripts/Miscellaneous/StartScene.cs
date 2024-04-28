@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-public class StartSceneWindow : EditorWindow
+public class StartSceneWindow : EditorWindow // This window is used to force the play mode to start from a chosen scene
 {
     private SceneAsset selectedStartScene;
     private int selectedStartButton = 0;
@@ -23,8 +23,6 @@ public class StartSceneWindow : EditorWindow
 
 
     }
-
-
 
     [MenuItem("Window/StartScene")]
     static void Open()

@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DropAbility : MonoBehaviour
 {
+    // External data
     [SerializeField]
     private AbilityUnlock abilityUnlock;
 

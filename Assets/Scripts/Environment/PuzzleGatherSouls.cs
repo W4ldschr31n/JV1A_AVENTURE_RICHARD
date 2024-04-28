@@ -1,15 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class PuzzleGatherSouls : MonoBehaviour
 {
+    // Internal components
+    private Interactable interactable;
+    // External components
     private DialogueManager dialogueManager;
     private InputManager inputManager;
-    private Interactable interactable;
+
+    // Properties
     private bool isPlayerInRange, isComplete;
     private bool isTalking;
+
+    // Unity event
     [SerializeField]
     UnityEvent onDialogueEnd;
 

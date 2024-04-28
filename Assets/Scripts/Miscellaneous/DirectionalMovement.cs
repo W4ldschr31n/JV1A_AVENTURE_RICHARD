@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DirectionalMovement : MonoBehaviour
@@ -22,7 +20,6 @@ public class DirectionalMovement : MonoBehaviour
         lastY = -1f; // Force facing down at start
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (direction.magnitude == 0f || !canMove)

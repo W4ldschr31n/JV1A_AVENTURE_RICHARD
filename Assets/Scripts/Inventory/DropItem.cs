@@ -1,29 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DropItem : MonoBehaviour
 {
+    // External data
     public Item item;
+    // External components
+    private Inventory inventory;
+    // Internal components
     private SpriteRenderer spriteRenderer;
-    // Start is called before the first frame update
+
     void Start()
     {
+        inventory = FindObjectOfType<Inventory>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = item.sprite;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Inventory>().AddItem(item);
+            inventory.AddItem(item);
             Destroy(gameObject);
         }
     }

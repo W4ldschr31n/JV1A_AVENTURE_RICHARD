@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+    // Accessible properties
     public Vector2 MoveInput;
     public bool ToggleInventoryInput;
     public bool InteractInput;
@@ -12,6 +11,7 @@ public class InputManager : MonoBehaviour
     public bool AttackOboleInput;
     public bool AttackChargeInput;
 
+    // Not accessible properties
     private PlayerInput playerInput;
 
     private InputAction moveAction;

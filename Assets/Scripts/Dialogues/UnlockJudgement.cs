@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UnlockJudgement : MonoBehaviour
 {
+    // External component
     private GameData gameData;
 
     private void Start()

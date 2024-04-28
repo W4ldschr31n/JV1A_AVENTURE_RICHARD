@@ -1,13 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GateOpenerJudgement : MonoBehaviour
 {
+    // Internal components
     private Gate gate;
     private Interactable interactable;
-    private bool playerNearby;
+
+    // External components
     private InputManager inputManager;
+
+    // Properties
+    private bool playerNearby;
 
     private void Start()
     {

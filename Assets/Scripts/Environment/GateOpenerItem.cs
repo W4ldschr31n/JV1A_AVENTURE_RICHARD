@@ -1,15 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GateOpenerItem : MonoBehaviour
 {
+    // External components
     private Gate gate;
     private Interactable interactable;
-    private bool playerNearby;
-    private InputManager inputManager;
+
+    // External components
     private Inventory inventory;
+    private InputManager inputManager;
+
+    // External data
     public Item item;
+
+    // Properties
+    private bool playerNearby;
 
     private void Start()
     {

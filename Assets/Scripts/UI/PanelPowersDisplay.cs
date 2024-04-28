@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PowersDisplay : MonoBehaviour
 {
+    // External components
     [SerializeField]
     private GameObject judgementDisplay, oboleDisplay, chargeDisplay;
     private InputDisplayManager inputDisplayManager;
-    // Start is called before the first frame update
+
     void Start()
     {
         inputDisplayManager = FindObjectOfType<InputDisplayManager>();
@@ -27,6 +25,7 @@ public class PowersDisplay : MonoBehaviour
 
     void UpdateDisplay()
     {
+        // Allow to not have every power displayed in the panel
         if (judgementDisplay != null) {
             judgementDisplay.SetActive(inputDisplayManager.canDisplayJudgement);
         }

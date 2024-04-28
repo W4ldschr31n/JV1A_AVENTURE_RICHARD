@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ItemsDisplay : MonoBehaviour
 {
+    // External data
     private Item[] items;
+    // External components
     [SerializeField]
     private Image[] images;
     [SerializeField]
     private Image panel;
     private Inventory inventory;
 
-    // Start is called before the first frame update
     void Start()
     {
         items = new Item[3];

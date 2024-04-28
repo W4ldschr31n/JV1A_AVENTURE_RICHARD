@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractPanelManager : MonoBehaviour
 {
+    // External component
     [SerializeField]
     private GameObject interactpanel;
 

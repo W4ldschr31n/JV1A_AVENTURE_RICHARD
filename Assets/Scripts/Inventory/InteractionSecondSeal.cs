@@ -1,22 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class InteractionSecondSeal : MonoBehaviour
 {
+    // External components
     private DialogueManager dialogueManager;
     private InputManager inputManager;
+    // Properties
     private bool isEnabled;
+    // Unity event
     public UnityEvent onDialogueEnd;
-    // Start is called before the first frame update
+    
     void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
         inputManager = FindObjectOfType<InputManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(isEnabled && inputManager.InteractInput)
@@ -24,7 +24,6 @@ public class InteractionSecondSeal : MonoBehaviour
             dialogueManager.DisplayNextQuote();
         }
     }
-
 
     private void OnTriggerExit2D(Collider2D collision)
     {

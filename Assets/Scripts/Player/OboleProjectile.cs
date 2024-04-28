@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OboleProjectile : MonoBehaviour
 {
-    public float speed;
+    // Internal component
     private Rigidbody2D rgbd;
+    // Properties
+    public float speed;
     public Vector3 direction;
+
     void Start()
     {
         rgbd = GetComponent<Rigidbody2D>();

@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryObolesDisplay : MonoBehaviour
 {
+    // External Components
     [SerializeField]
     private GameObject textOboles, imageOboles;
     private InputDisplayManager inputDisplayManager;
+
     void Start()
     {
         inputDisplayManager = FindObjectOfType<InputDisplayManager>();
