@@ -17,10 +17,10 @@ public class ClearEnemiesPuzzle : MonoBehaviour
         EnemyBehaviour.onEnemyKilled -= CheckEnemiesAreDead;
     }
 
-    private void CheckEnemiesAreDead(GameObject _enemy, Vector2 _position, KillMethod _killMethod)
+    private void CheckEnemiesAreDead(Vector2 _position, KillMethod _killMethod)
     {
         // Wait a bit so the enemy that died is destroy
-        Invoke("CheckAndDestroy", 0.5f);
+        Invoke(nameof(CheckAndDestroy), 0.5f);
     }
 
     private void CheckAndDestroy()

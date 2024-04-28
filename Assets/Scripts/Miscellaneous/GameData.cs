@@ -93,9 +93,8 @@ public class GameData : MonoBehaviour
         SpawnRewards(obolePrefab, nbRewards, position);
     }
 
-    private void OnEnemyKilled(GameObject enemy, Vector2 position, KillMethod killMethod)
+    private void OnEnemyKilled(Vector2 position, KillMethod killMethod)
     {
-        Destroy(enemy);
         // Player must have progressed and unlocked oboles to get drop rewards
         if (inputDisplayManager.canDisplayObole)
         {
