@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 22357505}
   - component: {fileID: 22357506}
-  - component: {fileID: 22357507}
   m_Layer: 0
   m_Name: MainMenuControls
   m_TagString: Untagged
@@ -177,19 +176,6 @@ MonoBehaviour:
   optionsMenuFirst: {fileID: 1252117311}
   keyboardControlsFirst: {fileID: 438291502}
   controllerControlsFirst: {fileID: 1244885881}
---- !u!114 &22357507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22357502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87d88d727dd3a1044bdfec6fb1b1e65b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputActions: {fileID: -944628639613478452, guid: 0c704d1ab9667584c93408525b6a3cd1, type: 3}
 --- !u!1 &29152608
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,7 +2067,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 22357507}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ResetDeviceBindings, Assembly-CSharp
         m_MethodName: ResetSchemeBindings
         m_Mode: 5
@@ -3221,7 +3207,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 22357507}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ResetDeviceBindings, Assembly-CSharp
         m_MethodName: ResetSchemeBindings
         m_Mode: 5

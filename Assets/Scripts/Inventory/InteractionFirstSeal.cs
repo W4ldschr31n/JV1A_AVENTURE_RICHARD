@@ -36,7 +36,7 @@ public class InteractionFirstSeal : MonoBehaviour
     public void TriggerDialogue()
     {
         isEnabled = true;
-        dialogueManager.DisplaySimpleMessage("Vous trouvez le <b>sceau de la justice</b>.");
+        dialogueManager.DisplaySimpleMessage("Vous trouvez le <b>sceau de la justice</b>. Re tournez voir <b>Mère</b>.");
     }
 
     public void DestroySelf()

@@ -36,7 +36,7 @@ public class InteractionSecondSeal : MonoBehaviour
     public void TriggerDialogue()
     {
         isEnabled = true;
-        dialogueManager.DisplaySimpleMessage("Vous trouvez le <b>sceau de la fureur</b>. FIN DU JEU");
+        dialogueManager.DisplaySimpleMessage("Vous trouvez le <b>sceau de la fureur</b>.");
     }
 
     public void DestroySelf()

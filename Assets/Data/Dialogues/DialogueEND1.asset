@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e5059789cd4e54ebff4be9788cc996, type: 3}
+  m_Name: DialogueEND1
+  m_EditorClassIdentifier: 
+  npcName: "M\xE8re"
+  quotes:
+  - Mon <i>doux</i> agneau...
+  - "Tu as r\xE9cup\xE9r\xE9 les <b>sceaux de l'apocalypse</b>, je suis fi\xE8re
+    de toi."
+  - "Cependant tu t'es alli\xE9 au <b>Patriarche</b>. Ce tra\xEEtre n'a plus sa place
+    dans ce monde."
+  - "Je sais qu'il t'a r\xE9v\xE9l\xE9 ton origine, tu \xE9tais un bouc <i>ignoble</i>,
+    mais je t'ai transform\xE9 en un <i>magnifique</i> agneau."
+  - Utilise les sceaux pour reconstruire un monde nouveau, un monde meilleur, avec
+    moi.
+  - J'ai foi en toi.
