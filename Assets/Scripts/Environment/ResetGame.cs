@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEditor;
 using UnityEngine.SceneManagement;
 
 public class ResetGame : MonoBehaviour
 {
     // External data
-    public SceneAsset sceneToRestart;
+    public string sceneToRestart;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,6 +20,6 @@ public class ResetGame : MonoBehaviour
         {
             Destroy(element.gameObject);
         }
-        SceneManager.LoadScene(sceneToRestart.name);
+        SceneManager.LoadScene(sceneToRestart);
     }
 }

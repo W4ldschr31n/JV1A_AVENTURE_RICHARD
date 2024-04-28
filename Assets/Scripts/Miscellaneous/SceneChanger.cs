@@ -4,7 +4,7 @@ using UnityEngine;
 public class SceneChanger : MonoBehaviour
 {
     // External components
-    public SceneAsset sceneToLoad;
+    public string sceneToLoad;
     private GameData gameData;
     // Properties
     public Direction arrivalDirection = Direction.Center;
@@ -18,7 +18,7 @@ public class SceneChanger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            gameData.ChangeScene(sceneToLoad.name, arrivalDirection);
+            gameData.ChangeScene(sceneToLoad, arrivalDirection);
         }
     }
 }

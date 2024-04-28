@@ -437,8 +437,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6571448775975856595, guid: 700207e06ad495f4d9bdcc03134b6262, type: 3}
       propertyPath: sceneToLoad
-      value: 
-      objectReference: {fileID: 102900000, guid: b03bf40e72301f74ea71d17c97830ed3, type: 3}
+      value: SceneStyx
+      objectReference: {fileID: 0}
     - target: {fileID: 6571448775975856595, guid: 700207e06ad495f4d9bdcc03134b6262, type: 3}
       propertyPath: arrivalDirection
       value: 2
@@ -630,8 +630,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6571448775975856595, guid: 700207e06ad495f4d9bdcc03134b6262, type: 3}
       propertyPath: sceneToLoad
-      value: 
-      objectReference: {fileID: 102900000, guid: b929cf851489ba64893ad079366a0a5c, type: 3}
+      value: EndScene
+      objectReference: {fileID: 0}
     - target: {fileID: 8431736609810339028, guid: 700207e06ad495f4d9bdcc03134b6262, type: 3}
       propertyPath: m_LocalPosition.x
       value: 54

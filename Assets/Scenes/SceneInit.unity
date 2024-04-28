@@ -2986,10 +2986,10 @@ PrefabInstance:
     - target: {fileID: 8064302099210683033, guid: e082fac120316b144801b5b49d16e372, type: 3}
       propertyPath: m_Action
       value: 
-      objectReference: {fileID: -1946564365313720924, guid: 7dead05c54ca85b4681351aafd8bd03a, type: 3}
+      objectReference: {fileID: -6911258286672779965, guid: 0c704d1ab9667584c93408525b6a3cd1, type: 3}
     - target: {fileID: 8064302099210683033, guid: e082fac120316b144801b5b49d16e372, type: 3}
       propertyPath: m_BindingId
-      value: 50a5adae-36bc-4b42-ac08-266d143e2c62
+      value: 38331aa4-1f18-4305-984c-e2f33727244c
       objectReference: {fileID: 0}
     - target: {fileID: 8064302099210683034, guid: e082fac120316b144801b5b49d16e372, type: 3}
       propertyPath: m_AnchoredPosition.y

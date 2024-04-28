@@ -387,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790db0f792cd0db44bdc50f6b8e7e9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToRestart: {fileID: 102900000, guid: b929cf851489ba64893ad079366a0a5c, type: 3}
+  sceneToRestart: SceneMenu
 --- !u!1001 &1343599800
 PrefabInstance:
   m_ObjectHideFlags: 0

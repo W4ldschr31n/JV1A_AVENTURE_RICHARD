@@ -13,8 +13,8 @@ public class GameData : MonoBehaviour
     // External data
     public GameObject obolePrefab;
     public GameObject faithPrefab;
-    public SceneAsset sceneToPlay;
-    public SceneAsset sceneInventory;
+    public string sceneToPlay;
+    public string sceneInventory;
     // Properties
     private Direction spawnDirection;
     public Vector2 spawnPoint = Vector2.zero;
@@ -34,7 +34,7 @@ public class GameData : MonoBehaviour
         deathScreenManager = FindObjectOfType<DeathScreenManager>();
         // Move player to the real game after init
         spawnDirection = Direction.Center;
-        SceneManager.LoadScene(sceneToPlay.name);
+        SceneManager.LoadScene(sceneToPlay);
     }
 
     private void OnEnable()
@@ -140,13 +140,13 @@ public class GameData : MonoBehaviour
             isInventoryOpen = true;
             // 'Pause' the game
             Time.timeScale = 0f;
-            SceneManager.LoadScene(sceneInventory.name, LoadSceneMode.Additive);
+            SceneManager.LoadScene(sceneInventory, LoadSceneMode.Additive);
         } else
         {
             isInventoryOpen = false;
             // 'Resume' the game
             Time.timeScale = 1f;
-            SceneManager.UnloadSceneAsync(sceneInventory.name);
+            SceneManager.UnloadSceneAsync(sceneInventory);
         }
     }
 
