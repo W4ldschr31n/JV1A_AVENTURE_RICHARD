@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -96,12 +94,6 @@ public class PlayerControl : MonoBehaviour
                 AttackCharge();
             }
         }
-        
-        // Reset
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            gameData.MovePlayerToSpawn();
-        }
 
         // Movement - the actual moving happens in DirectionalMovement.FixedUpdate() for consistency reasons
         directionalMovement.direction = (Vector3)(inputManager.MoveInput).normalized;
@@ -120,6 +112,7 @@ public class PlayerControl : MonoBehaviour
 
     private void AttackJudgement()
     {
+        // See animation "PlayerAttackJudgement" for behaviour
         animator.SetTrigger("AttackJudgement");
     }
 
@@ -142,12 +135,14 @@ public class PlayerControl : MonoBehaviour
             GameObject projectile = Instantiate(projectilePrefab, attackSpot.position, Quaternion.identity);
             projectile.GetComponent<Rigidbody2D>().angularVelocity = -360f;
             projectile.GetComponent<OboleProjectile>().direction = attackDirection;
+            // See animation "PlayerAttackBoloe" for behaviour
             animator.SetTrigger("AttackObole");
         }
     }
 
     private void AttackCharge()
     {
+        // See animation "PlayerAttackCharge" for behaviour
         animator.SetTrigger("AttackCharge");
         // Force linear movement
         rgbd.velocity = Vector3.zero;
@@ -171,6 +166,7 @@ public class PlayerControl : MonoBehaviour
             // If there is wall in front of us, stop charging
             if (hits.Count > 0)
             {
+                // See animation "PlayerAttackChargeStun" for behaviour
                 animator.SetTrigger("ChargeStun");
                 isCharging = false;
                 // Stop linear movement

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,27 +5,30 @@ using System;
 
 public class GameData : MonoBehaviour
 {
-    private Direction spawnDirection;
-    public Vector2 spawnPoint = Vector2.zero;
+    // External components
     private PlayerControl player;
     private CameraFollow mainCamera;
-    private LevelData levelData;
-    public GameObject obolePrefab;
-    public GameObject faithPrefab;
-    public const int FAITH_HEAL = 15;
-    public SceneAsset sceneToPlay;
-    public SceneAsset sceneInventory;
-    public bool isInventoryOpen;
-    public static Action onAbilityUnlocked;
     private InputDisplayManager inputDisplayManager;
     private DeathScreenManager deathScreenManager;
+    // External data
+    public GameObject obolePrefab;
+    public GameObject faithPrefab;
+    public SceneAsset sceneToPlay;
+    public SceneAsset sceneInventory;
+    // Properties
+    private Direction spawnDirection;
+    public Vector2 spawnPoint = Vector2.zero;
+    private LevelData levelData;
+    public const int FAITH_HEAL = 25;
+    public bool isInventoryOpen;
+    // Event
+    public static Action onAbilityUnlocked;
 
-    // Start is called before the first frame update
     void Start()
     {
         // Init global stuff
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
+        player = FindObjectOfType<PlayerControl>();
+        mainCamera = FindObjectOfType<CameraFollow>();
         inputDisplayManager = FindObjectOfType<InputDisplayManager>();
         isInventoryOpen = false;
         deathScreenManager = FindObjectOfType<DeathScreenManager>();
@@ -50,12 +51,6 @@ public class GameData : MonoBehaviour
         LostSoul.onLostSoulFreed -= OnLostSoulFreed;
         EnemyBehaviour.onEnemyKilled -= OnEnemyKilled;
         PlayerControl.onPlayerDead -= OnPlayerDead;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void MovePlayerToSpawn()
